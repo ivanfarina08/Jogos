@@ -10,11 +10,15 @@
     <style>
         img {
             width: 100%;
-            padding: 10px;
+            padding: 5px;
         }
 
         body {
             width: 750px;
+        }
+        col,row{
+            padding: 0;
+            margin: 0;
         }
     </style>
     <title>Document</title>
@@ -32,30 +36,28 @@
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img2" onclick="vira_carta(2)">
             </div>
-        </div>
-        <div class="row">
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img3" onclick="vira_carta(3)">
             </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img4" onclick="vira_carta(4)">
             </div>
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img5" onclick="vira_carta(5)">
             </div>
-        </div>
-        <div class="row">
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img6" onclick="vira_carta(6)">
             </div>
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img7" onclick="vira_carta(7)">
             </div>
+        </div>
+        <div class="row">
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img8" onclick="vira_carta(8)">
             </div>
-        </div>
-        <div class="row">
             <div class="col">
                 <img src="img/virada.jpg" alt="" id="img9" onclick="vira_carta(9)">
             </div>
@@ -102,11 +104,11 @@
 
         function troca_imagem(value, elemento) {
             if (imagem_virada[value]) {
-                elemento.src = "/img/virada.jpg";
+                elemento.src = "img/virada.jpg";
                 imagem_virada[value] = false;
             }
             else {
-                elemento.src = "/img/" + imagem_src[value] + ".jpg";
+                elemento.src = "img/" + imagem_src[value] + ".jpg";
                 imagem_virada[value] = true;
             }
         }
@@ -133,8 +135,8 @@
         function par_errado(elemento) {
             setTimeout(function () {
                 let elemento2 = document.getElementById("img" + cartas_viradas[0]);
-                elemento.src = "/img/virada.jpg";
-                elemento2.src = "/img/virada.jpg";
+                elemento.src = "img/virada.jpg";
+                elemento2.src = "img/virada.jpg";
                 quant_viradas = 0;
                 imagem_virada[cartas_viradas[0]] = false;
                 imagem_virada[cartas_viradas[1]] = false;
@@ -163,7 +165,7 @@
             cartas_viradas = [];
             for (let i = 0; i < imagem_src.length; i++) {
                 var elemento = document.getElementById("img" + i);
-                elemento.src = "/img/virada.jpg";
+                elemento.src = "img/virada.jpg";
                 elemento.onclick = function onclick(event) {
                     vira_carta(i);
                 };
