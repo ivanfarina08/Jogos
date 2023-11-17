@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        img{
+            width: 100%;
+        }
+        body{
+            width: 750px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img1" onclick="img1()">
+            </div>
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img2" onclick="img2()">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img3" onclick="img3()">
+            </div>
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img4" onclick="img4()">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    
+    <script>
+        var imagem1=false,imagem2=false,imagem3=false,imagem4=false;
+        function img1(){
+            var elemento = document.getElementById("img1");
+            console.log(imagem1);
+            if (imagem1){
+                elemento.src = "/img/virada.jpg";
+                imagem1=false;
+            }
+            else{
+                elemento.src = "/img/1.jpg";
+                imagem1=true;
+                if(imagem4){
+                    document.getElementById("img4").onclick = null;
+                    elemento.onclick = null;
+                }
+            }
+        }
+        function img2(){
+            var elemento = document.getElementById("img2");
+            console.log(imagem2);
+            if (imagem2){
+                elemento.src = "/img/virada.jpg";
+                imagem2=false;
+            }
+            else{
+                elemento.src = "/img/2.jpg";
+                imagem2=true;
+                if(imagem3){
+                    document.getElementById("img3").onclick = null;
+                    elemento.onclick = null;
+                }
+            }
+        }
+        function img3(){
+            var elemento = document.getElementById("img3");
+            console.log(imagem3);
+            if (imagem3){
+                elemento.src = "/img/virada.jpg";
+                imagem3=false;
+            }
+            else{
+                elemento.src = "/img/2.jpg";
+                imagem3=true;
+                if(imagem2){
+                    document.getElementById("img2").onclick = null;
+                    elemento.onclick = null;
+                }
+            }
+        }
+        function img4(){
+            var elemento = document.getElementById("img4");
+            console.log(imagem4);
+            if (imagem4){
+                elemento.src = "/img/virada.jpg";
+                imagem4=false;
+            }
+            else{
+                elemento.src = "/img/1.jpg";
+                imagem4=true;
+                if(imagem1){
+                    document.getElementById("img1").onclick = null;
+                    elemento.onclick = null;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
