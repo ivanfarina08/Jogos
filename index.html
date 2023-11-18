@@ -99,46 +99,46 @@
     <div class="container text-center" id="celular">
         <div class="row">
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img0" onclick="vira_carta(0)">
+                <img src="img/virada.jpg" alt="" id="img12" onclick="vira_carta(12)">
             </div>
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img1" onclick="vira_carta(1)">
+                <img src="img/virada.jpg" alt="" id="img13" onclick="vira_carta(13)">
             </div>
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img2" onclick="vira_carta(2)">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="img/virada.jpg" alt="" id="img3" onclick="vira_carta(3)">
-            </div>
-            <div class="col">
-                <img src="img/virada.jpg" alt="" id="img4" onclick="vira_carta(4)">
-            </div>
-            <div class="col">
-                <img src="img/virada.jpg" alt="" id="img5" onclick="vira_carta(5)">
+                <img src="img/virada.jpg" alt="" id="img14" onclick="vira_carta(14)">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img6" onclick="vira_carta(6)">
+                <img src="img/virada.jpg" alt="" id="img15" onclick="vira_carta(15)">
             </div>
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img7" onclick="vira_carta(7)">
+                <img src="img/virada.jpg" alt="" id="img16" onclick="vira_carta(16)">
             </div>
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img8" onclick="vira_carta(8)">
+                <img src="img/virada.jpg" alt="" id="img17" onclick="vira_carta(17)">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img9" onclick="vira_carta(9)">
+                <img src="img/virada.jpg" alt="" id="img18" onclick="vira_carta(18)">
             </div>
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img10" onclick="vira_carta(10)">
+                <img src="img/virada.jpg" alt="" id="img19" onclick="vira_carta(19)">
             </div>
             <div class="col">
-                <img src="img/virada.jpg" alt="" id="img11" onclick="vira_carta(11)">
+                <img src="img/virada.jpg" alt="" id="img20" onclick="vira_carta(20)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img21" onclick="vira_carta(21)">
+            </div>
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img22" onclick="vira_carta(22)">
+            </div>
+            <div class="col">
+                <img src="img/virada.jpg" alt="" id="img23" onclick="vira_carta(23)">
             </div>
         </div>
     </div>
@@ -150,22 +150,25 @@
     <script>
         var imagem_virada = [false, false, false, false, false, false, false, false, false, false, false, false];
         var imagem_src = [1, 2, 3, 3, 1, 4, 2, 4, 5, 6, 6, 5];
-        var cartas_viradas = [];
+        var cartas_viradas_indice = [];
+        var cartas_viradas_id = [];
         var quant_viradas = 0;
         var quant_pares = 0;
         const quant_pares_jogo = 6;
+        const quantidade_cartas = 12;
 
         function vira_carta(value) {
             var elemento = document.getElementById("img" + value);
-
-            console.log(elemento.onclick);
+            
+            cartas_viradas_id[quant_viradas] = value;
+            cartas_viradas_indice[quant_viradas] = verifica_dispositivo(value);
+            console.log(cartas_viradas_indice[quant_viradas]);
+            
 
             troca_imagem(value, elemento);
 
-            cartas_viradas[quant_viradas] = value;
             quant_viradas++;
-            console.log(cartas_viradas);
-
+            
             if (quant_viradas == 2) {
                 if (verifica_par()) {
                     par_perfeito(elemento);
@@ -176,19 +179,31 @@
             }
         }
 
+        function verifica_dispositivo(value){
+            let dispositivo = value - quantidade_cartas;
+            if(dispositivo>=0){
+                let celular = dispositivo;
+                console.log(celular);
+                return celular;                
+            }
+            let computador = value;
+            return computador;
+        }
+
         function troca_imagem(value, elemento) {
-            if (imagem_virada[value]) {
+            if (imagem_virada[cartas_viradas_indice[quant_viradas]]) {
                 elemento.src = "img/virada.jpg";
-                imagem_virada[value] = false;
+                imagem_virada[cartas_viradas_indice[quant_viradas]] = false;
             }
             else {
-                elemento.src = "img/" + imagem_src[value] + ".jpg";
-                imagem_virada[value] = true;
+                console.log(cartas_viradas_indice[quant_viradas]);
+                elemento.src = "img/" + imagem_src[cartas_viradas_indice[quant_viradas]] + ".jpg";
+                imagem_virada[cartas_viradas_indice[quant_viradas]] = true;
             }
         }
 
         function verifica_par() {
-            if (imagem_src[cartas_viradas[0]] == imagem_src[cartas_viradas[1]]) {
+            if (imagem_src[cartas_viradas_indice[0]] == imagem_src[cartas_viradas_indice[1]]) {
                 return true;
             }
             else {
@@ -197,7 +212,7 @@
         }
 
         function par_perfeito(elemento) {
-            let elemento2 = document.getElementById("img" + cartas_viradas[0]);
+            let elemento2 = document.getElementById("img" + cartas_viradas_id[0]);
             elemento.onclick = null;
             elemento2.onclick = null;
             quant_viradas = 0;
@@ -208,12 +223,12 @@
 
         function par_errado(elemento) {
             setTimeout(function () {
-                let elemento2 = document.getElementById("img" + cartas_viradas[0]);
+                let elemento2 = document.getElementById("img" + cartas_viradas_id[0]);
                 elemento.src = "img/virada.jpg";
                 elemento2.src = "img/virada.jpg";
                 quant_viradas = 0;
-                imagem_virada[cartas_viradas[0]] = false;
-                imagem_virada[cartas_viradas[1]] = false;
+                imagem_virada[cartas_viradas_indice[0]] = false;
+                imagem_virada[cartas_viradas_indice[1]] = false;
                 cartas_viradas = [];
 
             }, 500); //delay is in milliseconds
@@ -236,8 +251,9 @@
 
         function reseta_jogo() {
             quant_viradas = 0;
-            cartas_viradas = [];
-            for (let i = 0; i < imagem_src.length; i++) {
+            cartas_viradas_id = [];
+            cartas_viradas_indice = [];
+            for (let i = 0; i < 24; i++) {
                 var elemento = document.getElementById("img" + i);
                 elemento.src = "img/virada.jpg";
                 elemento.onclick = function onclick(event) {
