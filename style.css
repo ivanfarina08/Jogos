@@ -1,0 +1,115 @@
+img {
+    width: 100%;
+    padding: 5px;
+}
+
+body {
+    width: 750px;
+    overflow: hidden;
+    background-color: #F4FC02BA;
+}
+
+col,
+row {
+    padding: 0;
+    margin: 0;
+}
+
+#celular {
+    display: none;
+    z-index: 0;
+}
+
+#computador {
+    display: block;
+    z-index: 0;
+}
+
+#fim_jogo{
+    display: none;
+    position: absolute;
+    top:0;
+    background-color: rgba(31, 28, 28, 0.951);
+    z-index: 1;
+    height: 100vh;
+    width: 750px;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+#bt_reiniciar {
+    --color: #00A97F;
+    --color2: rgb(10, 25, 30);
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: .3px solid var(--color);
+    transition: .5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+    font-weight: bold;
+   }
+   
+   #bt_reiniciar::after, #bt_reiniciar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: .5s ease-out;
+    background-color: var(--color);
+   }
+   
+   #bt_reiniciar::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   #bt_reiniciar:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+   }
+   
+   #bt_reiniciar:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+   }
+   
+   #bt_reiniciar:hover {
+    color: var(--color2);
+   }
+   
+   #bt_reiniciar:active {
+    filter: brightness(.7);
+    transform: scale(.98);
+   }
+
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+
+    #fim_jogo{
+        display: none;
+        width: 100%;
+    }
+
+    #celular {
+        display: block;
+    }
+
+    #computador {
+        display: none;
+    }
+}
