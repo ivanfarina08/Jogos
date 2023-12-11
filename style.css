@@ -140,14 +140,13 @@ row {
 #fundo-showdomilhao{
     background-image: url('img/showdomilhao/1.jpg');
     background-size: cover; 
-    font-family:cursive; 
+    font-family:"Comic Sans MS", "Comic Sans", cursive;
     height: 800px;
 }
 
 #fundo-showdomilhao-novo-celular{
     background-size: cover; 
     font-family:"Comic Sans MS", "Comic Sans", cursive;
-    ; 
     height: 800px;
 }
 
