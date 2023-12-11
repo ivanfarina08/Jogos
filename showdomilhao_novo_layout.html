@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <title>Show do Milhão</title>
+        <link rel="icon" type="image/x-icon" href="/img/jogo_memoria.png">
+    </head>
+</head>
+
+<body id="fundo-showdomilhao-novo-celular">
+    <section style="background-color: rgba(255, 255, 255, 0.425); height: 100vh; width: 100%;">
+        <h1 style="text-align: center; padding-top: 20px; font-size: 2em;" id="pergunta">Quem foi o codificador da doutrina espírita?</h1>
+        <div class="alinhamento-horizontal centralizar-conteudo">
+            <img src="img/showdomilhao/foto_professor.PNG" alt="" class="largura-50">
+        </div>
+        <section class="ordenar-coluna">
+            <input type="radio" class="btn-check" name="options-outlined" id="1" autocomplete="off">
+            <label class="btn btn-outline-success espacamento-milhao-celular tamanho-fonte-celular" for="1"
+                id="resposta1">Allan
+                Kardec</label>
+            <input type="radio" class="btn-check" name="options-outlined" id="2" autocomplete="off">
+            <label class="btn btn-outline-success espacamento-milhao-celular tamanho-fonte-celular" for="2"
+                id="resposta2">Leon
+                Dennis</label>
+            <input type="radio" class="btn-check" name="options-outlined" id="3" autocomplete="off">
+            <label class="btn btn-outline-success espacamento-milhao-celular tamanho-fonte-celular" for="3"
+                id="resposta3">Chico
+                Xavier</label>
+            <input type="radio" class="btn-check" name="options-outlined" id="4" autocomplete="off">
+            <label class="btn btn-outline-success espacamento-milhao-celular tamanho-fonte-celular" for="4"
+                id="resposta4">Divaldo
+                Franco</label>
+            <input type="radio" class="btn-check" name="options-outlined" id="5" autocomplete="off">
+            <label class="btn btn-outline-success espacamento-milhao-celular tamanho-fonte-celular" for="5"
+                id="resposta5">Buda</label>
+            <div class="alinhamento-horizontal" style="margin-top: 10px;">
+                <button type="button"
+                    class="btn btn-danger espacamento-milhao-celular tamanho-fonte-celular largura-50">Pular</button>
+                <button type="button" class="btn btn-light espacamento-milhao-celular tamanho-fonte-celular largura-50"
+                    id="meuBotao" disabled onclick="mostrarSelecionado()">Confirmar</button>                
+            </div>
+            <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="quant_pergunta">1/7</h1>
+        </section>
+        <div class="container text-center" id="fim_jogo">
+            <button id="bt_reiniciar" onclick="resetaJogo()">Deseja reiniciar o jogo?</button>
+        </div>
+    </section>
+</body>
+
+<script>
+    //**********************************************************************************************
+    //Perguntas
+    const dados = [
+        {
+            "id": 1,
+            "pergunta": "Quem foi o codificador da doutrina espírita?",
+            "opcao1": "Allan Kardec",
+            "opcao2": "Leon Dennis",
+            "opcao3": "Chico Xavier",
+            "opcao4": "Divaldo Franco",
+            "opcao5": "Buda",
+            "resposta": "Allan Kardec"
+        },
+        {
+            "id": 2,
+            "pergunta": "Qual o nome completo de Allan Kardec?",
+            "opcao1": "Allan Kardec",
+            "opcao2": "Leon Dennis",
+            "opcao3": "Léon Denizard Rivail",
+            "opcao4": "Hippolyte Léon Denizard Rivail",
+            "opcao5": "Hippolyte Rivail",
+            "resposta": "Hippolyte Léon Denizard Rivail"
+        },
+        {
+            "id": 3,
+            "pergunta": "Em que ano surgiu o espiritismo?",
+            "opcao1": "2023",
+            "opcao2": "1950",
+            "opcao3": "1857",
+            "opcao4": "1810",
+            "opcao5": "1800",
+            "resposta": "1857"
+        },
+        {
+            "id": 4,
+            "pergunta": "De acordo com os espíritos: Que é Deus?",
+            "opcao1": "Deus é a inteligência suprema, causa primária de todas as coisas",
+            "opcao2": "Ser que não liga para sua criação",
+            "opcao3": "Deus não existe",
+            "opcao4": "Deus é uma coisa",
+            "opcao5": "Deus é um homem",
+            "resposta": "Deus é a inteligência suprema, causa primária de todas as coisas"
+        }
+    ];
+
+    //**********************************************************************************************
+    //Habilita Botao Confirmar
+    // Obtém referências para os elementos do DOM
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    var meuBotao = document.getElementById('meuBotao');
+
+    // Adiciona um ouvinte de eventos para cada botão de rádio
+    radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener('change', function () {
+            // Verifica se pelo menos um botão de rádio está selecionado
+            var algumSelecionado = Array.from(radioButtons).some(function (radio) {
+                return radio.checked;
+            });
+
+            // Habilita ou desabilita o botão com base na verificação
+            meuBotao.disabled = !algumSelecionado;
+        });
+    });
+
+    //**********************************************************************************************
+    //Cria Variaveis
+    var array_ordem_perguntas = [];
+    var quantidade_respondidas = 0;
+    const quant_perguntas = 4;
+
+    //**********************************************************************************************
+    //Função que gera numero aleatório
+    function gera_ordem_perguntas() {
+        var array_perguntas = [1, 2, 3, 4];
+        var array_indices = [0, 1, 2, 3];
+        quantidade_respondidas = 0;
+        for (let cont = 0; cont < quant_perguntas; cont++) {
+            let valor_aleatorio = getRandomInt(array_indices.length - 1); //Gera um index aleatorio
+            array_ordem_perguntas[cont] = array_indices[valor_aleatorio] + 1;
+            array_indices.splice(valor_aleatorio, 1);
+        }
+        array_ordem_perguntas.forEach(numero => {
+            var questao = obterDadosPorId(numero);
+        })
+        console.log(array_ordem_perguntas);
+    }
+
+    gera_ordem_perguntas();
+
+    //**********************************************************************************************
+    //Função que gera numero aleatório
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    //**********************************************************************************************
+    //Verifica valor selecionado
+    function mostrarSelecionado() {
+        var radioButtons = document.getElementsByName('options-outlined');
+        meuBotao.disabled = true;
+        for (var i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                radioButtons[i].checked = false;
+                var idRespostaUsuario = 'resposta' + radioButtons[i].id;
+                var respostaUsuario = document.getElementById(idRespostaUsuario).innerHTML;
+                if (respostaUsuario !== resposta) {
+                    respostaErrada();
+                }
+                else {
+                    respostaCerta();
+                }
+            }
+        }
+    }
+
+    //**********************************************************************************************
+    //Resposta Errada
+    function respostaErrada() {
+        alert('errou');
+        document.getElementById("fim_jogo").style.display = "flex";
+    }
+
+
+    //**********************************************************************************************
+    //Resposta Certa
+    function respostaCerta() {
+        quantidade_respondidas++;
+        if (array_ordem_perguntas[quantidade_respondidas]) { carregaPergunta(array_ordem_perguntas[quantidade_respondidas]); }
+        else { alert('Parabens!!'); document.getElementById("fim_jogo").style.display = "flex"; }
+    }
+
+    //**********************************************************************************************
+    //Carrega Perguntas
+    function carregaPergunta(value) {
+        var questao = obterDadosPorId(value);
+        carregaHTML(questao);
+    }
+    carregaPergunta(array_ordem_perguntas[quantidade_respondidas]);
+
+    //**********************************************************************************************
+    //Obtem os dados da constante
+    function obterDadosPorId(id) {
+        // Procurar no array pelo objeto com o ID correspondente
+        const dadosDoId = dados.find(item => item.id === id);
+
+        // Verificar se o objeto foi encontrado
+        if (dadosDoId) {
+            return (dadosDoId);
+        } else {
+            console.log('Nenhum dado encontrado para o ID:', id);
+        }
+    }
+
+    //**********************************************************************************************
+    //Altera as questões no html
+    function carregaHTML(questao) {
+        var pergunta = document.getElementById('pergunta').innerHTML = questao.pergunta;
+        var opcao1 = document.getElementById('resposta1').innerHTML = questao.opcao1;
+        var opcao2 = document.getElementById('resposta2').innerHTML = questao.opcao2;
+        var opcao3 = document.getElementById('resposta3').innerHTML = questao.opcao3;
+        var opcao4 = document.getElementById('resposta4').innerHTML = questao.opcao4;
+        var opcao5 = document.getElementById('resposta5').innerHTML = questao.opcao5;
+        var quant_pergunta = document.getElementById('quant_pergunta').innerHTML = quantidade_respondidas + 1 + '/' + quant_perguntas;
+        resposta = questao.resposta;
+    }
+
+    //**********************************************************************************************
+    //Reseta Jogo
+
+    function resetaJogo() {
+        document.getElementById("fim_jogo").style.display = "none";
+        gera_ordem_perguntas();
+        carregaPergunta(array_ordem_perguntas[quantidade_respondidas]);
+    }
+
+</script>
+
+</html>

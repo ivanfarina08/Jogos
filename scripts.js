@@ -14,16 +14,16 @@ function randomiza_cartas() {
     imagem_src = [false, false, false, false, false, false, false, false, false, false, false, false,];
     array_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     let cont = 0;
-    while (array_indices.length>0) {
+    while (array_indices.length > 0) {
         cont++;
         let quant_indices = array_indices.length - 1;
         let valor_aleatorio = getRandomInt(quant_indices); //Gera um index aleatorio
-        
-        if(cont>6) cont=cont-6;
+
+        if (cont > 6) cont = cont - 6;
         imagem_src[array_indices[valor_aleatorio]] = cont;
-        
+
         array_indices.splice(valor_aleatorio, 1);
-        
+
     }
 }
 
@@ -44,7 +44,7 @@ function vira_carta(value) {
     quant_viradas++;
 
     if (quant_viradas == 2) {
-        if(cartas_viradas_id[0]!=cartas_viradas_id[1]){
+        if (cartas_viradas_id[0] != cartas_viradas_id[1]) {
             if (verifica_par()) {
                 par_perfeito(elemento);
             }
@@ -52,11 +52,11 @@ function vira_carta(value) {
                 par_errado(elemento);
             }
         }
-        else{
-            cartas_viradas_id=[];
-            cartas_viradas_indice=[];
-            quant_viradas=0;
-        }        
+        else {
+            cartas_viradas_id = [];
+            cartas_viradas_indice = [];
+            quant_viradas = 0;
+        }
     }
 }
 
@@ -64,7 +64,7 @@ function verifica_dispositivo(value) {
     let dispositivo = value - quantidade_cartas;
     if (dispositivo >= 0) {
         let celular = dispositivo;
-        
+
         return celular;
     }
     let computador = value;
@@ -78,7 +78,7 @@ function troca_imagem(value, elemento) {
         imagem_virada[cartas_viradas_indice[quant_viradas]] = false;
     }
     else {
-        
+
         elemento.src = "img/" + imagem_src[cartas_viradas_indice[quant_viradas]] + ".jpg";
         imagem_virada[cartas_viradas_indice[quant_viradas]] = true;
     }
@@ -105,6 +105,12 @@ function par_perfeito(elemento) {
 }
 
 function par_errado(elemento) {
+    var eles = document.getElementsByTagName('img');
+    for (var i = 0; i < eles.length; i++) {
+        eles[i].prev_click = eles[i].onclick; // save the previous value
+        console.log(eles[i].prev_click);
+        eles[i].onclick = false;
+    }
     setTimeout(function () {
         let elemento2 = document.getElementById("img" + cartas_viradas_id[0]);
         elemento.src = "img/virada.png";
@@ -114,6 +120,10 @@ function par_errado(elemento) {
         imagem_virada[cartas_viradas_indice[1]] = false;
         cartas_viradas = [];
 
+        for (var i = 0; i < eles.length; i++){
+            eles[i].onclick = eles[i].prev_click;  // restore the previous value
+            console.log(eles[i].onclick);
+        }
     }, 500); //delay is in milliseconds
 }
 
