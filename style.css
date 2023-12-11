@@ -146,7 +146,8 @@ row {
 
 #fundo-showdomilhao-novo-celular{
     background-size: cover; 
-    font-family:'Comic Sans'; 
+    font-family:"Comic Sans MS", "Comic Sans", cursive;
+    ; 
     height: 800px;
 }
 
