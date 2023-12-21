@@ -24,10 +24,8 @@ row {
     z-index: 0;
 }
 
-#fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo {
+#fim_jogo {
     display: none;
-    flex-direction: column;
-    color: white;
     position: absolute;
     top: 0;
     background-color: rgba(31, 28, 28, 0.951);
@@ -140,32 +138,16 @@ row {
 }
 
 #fundo-showdomilhao{
+    background-image: url('img/showdomilhao/1.jpg');
     background-size: cover; 
     font-family:"Comic Sans MS", "Comic Sans", cursive;
     height: 800px;
 }
 
-.btn{
-    border: none;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-
-#btPular{
-    background-color: #ed5c53;
-}
-
-#btPular:hover{
-    background-color: #a62520;
-    color: white;
-}
-
-#meuBotao{
-    background-color: #74a7e4;
-}
-
-#meuBotao:hover{
-    background-color: #336ca5;
-    color: white;
+#fundo-showdomilhao-novo-celular{
+    background-size: cover; 
+    font-family:"Comic Sans MS", "Comic Sans", cursive;
+    height: 800px;
 }
 
 @media (max-width: 600px) {
@@ -173,7 +155,7 @@ row {
         width: 100%;
     }
 
-    #fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo{
+    #fim_jogo {
         display: none;
         width: 100%;
     }
@@ -182,17 +164,11 @@ row {
         display: block;
     }
 
-    #fundo-showdomilhao{
-        padding: 5px;
-    }
-
-    #espacamento-milhao-celular{
-        margin: 10px;
-    }
-
     #computador {
         display: none;
     }
 
-    
+    #fundo-showdomilhao{
+        background-size:cover;
+    }
 }
