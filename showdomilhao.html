@@ -486,10 +486,7 @@
     function paraJogo() {
         document.getElementById("parabens_acertou").style.display = "none";
         document.getElementById("mensagemParouJogo").style.display = "flex";
-        document.getElementById("valor_pergunta_atual_2").innerHTML = valor_cada_questao[quantidade_respondidas];
-        setTimeout(function () {
-            resetaJogo();
-        }, 3000);
+        document.getElementById("valor_pergunta_atual_2").innerHTML = valor_cada_questao[quantidade_respondidas] + " pontos!";
     }
 
     //**********************************************************************************************
