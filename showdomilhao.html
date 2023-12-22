@@ -38,9 +38,14 @@
                 <button type="button" class="btn espacamento-milhao-celular tamanho-fonte-celular largura-50"
                     id="meuBotao" disabled onclick="mostrarSelecionado()">Confirmar</button>                
             </div>
-            <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="quant_pergunta">1/7</h1>
+            <div style="display: flex;flex-direction: row; justify-content: center;">
+                <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="quant_pergunta"></h1>
+                <h1 style="text-align: center; padding: 20px;font-size: 2em;">Pontos:</h1>
+                <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="valor_pergunta"></h1>
+            </div>            
         </section>
-        <div class="container text-center" id="fim_jogo">
+        <div class="container text-center" id="mensagemErrou">
+            <h1>Que penaa! A resposta correta era</h1><br><h1 id="respostaCerta"></h1><br>
             <button id="bt_reiniciar" onclick="resetaJogo()">Deseja reiniciar o jogo?</button>
         </div>
         <div class="container text-center" id="parabens_acertou">
@@ -51,6 +56,7 @@
         </div>
         <div class="container text-center" id="mensagemParouJogo">
             <h1>Que pena que desistiu, mas você e ganhou o prêmio de</h1><br><h1 id="valor_pergunta_atual_2"></h1><br>
+            <button id="bt_reiniciar" onclick="resetaJogo()">Deseja reiniciar o jogo?</button>
         </div>
         <div class="container text-center" id="mensagemGanhouJogo">
             <h1>Parabénsss você acaba de ganhar</h1><br><h1>R$ 1.000.000,00</h1><br>
@@ -330,7 +336,7 @@
     const quant_perguntas = 30;
     const quant_campeao = 7;
     const quant_pulos_possiveis = 3;
-    const valor_cada_questao = ['R$ 0,00','R$ 100,00','R$ 500,00','R$ 1.000,00','R$ 10.000,00','R$ 50.000,00','R$ 25.0000,00','R$ 1.000.000,00'];
+    const valor_cada_questao = ['0','100','500','1.000','10.000','50.000','25.0000','1.000.000'];
     var array_ordem_perguntas = [];
     var quantidade_respondidas = 0;
     var quant_pulos = 1;
@@ -414,8 +420,8 @@
     //**********************************************************************************************
     //Resposta Errada
     function respostaErrada() {
-        alert('errou');
-        document.getElementById("fim_jogo").style.display = "flex";
+        document.getElementById("respostaCerta").innerHTML = resposta;
+        document.getElementById("mensagemErrou").style.display = "flex";
     }
 
 
@@ -488,6 +494,7 @@
         var opcao2 = document.getElementById('resposta2').innerHTML = questao.opcao2;
         var opcao3 = document.getElementById('resposta3').innerHTML = questao.opcao3;
         var quant_pergunta = document.getElementById('quant_pergunta').innerHTML = quantidade_respondidas + 1 + '/' + 7;
+        var quant_pergunta = document.getElementById('valor_pergunta').innerHTML = valor_cada_questao[quantidade_respondidas];
         resposta = questao.resposta;
     }
 
@@ -495,7 +502,7 @@
     //Reseta Jogo
 
     function resetaJogo() {
-        document.getElementById("fim_jogo").style.display = "none";
+        document.getElementById("mensagemErrou").style.display = "none";
         document.getElementById("mensagemParouJogo").style.display = "none";
         document.getElementById("mensagemGanhouJogo").style.display = "none";
         gera_ordem_perguntas();

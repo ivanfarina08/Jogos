@@ -24,7 +24,7 @@ row {
     z-index: 0;
 }
 
-#fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo {
+#fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo,#mensagemErrou {
     display: none;
     flex-direction: column;
     color: white;
@@ -141,7 +141,7 @@ row {
 
 #fundo-showdomilhao{
     background-size: cover; 
-    font-family:"Comic Sans MS", "Comic Sans", cursive;
+    font-family:"Comic Sans MS", "Comic Sans";
     height: 800px;
 }
 
@@ -173,7 +173,7 @@ row {
         width: 100%;
     }
 
-    #fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo{
+    #fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo,#mensagemErrou{
         display: none;
         width: 100%;
     }
