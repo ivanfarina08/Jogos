@@ -141,7 +141,7 @@ row {
 
 #fundo-showdomilhao{
     background-size: cover; 
-    font-family:"Comic Sans MS", "Comic Sans";
+    font-family:"Comic Sans MS", "Comic Sans",sans-serif;
     height: 800px;
 }
 
