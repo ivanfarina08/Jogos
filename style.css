@@ -143,7 +143,7 @@ row {
     background-size: cover; 
     font-family:"Comic Sans MS", "Comic Sans",'Comic Neue', sans-serif;
     height: 800px;
-    width: 700px;
+    width: 100%;
 }
 
 .btn{
