@@ -50,11 +50,9 @@
             <button id="bt_reiniciar" onclick="resetaJogo()">Deseja reiniciar o jogo?</button>
         </div>
         <div class="container text-center" id="parabens_acertou">
-            <h1>Você acertou e ganhou!!</h1><br>
-            <h1>Pontos: </h1>
+            <h1>Você acertou e ganhou</h1><br>
             <h1 id="valor_pergunta_atual_1"></h1><br>
-            <h1>Próxima pergunta valendo:</h1><br>
-            <h1>Pontos: </h1>
+            <h1>Próxima pergunta valendo</h1><br>
             <h1 id="valor_pergunta_proxima"></h1>
             <button class="tamanho-fonte-celular" style="margin-top: 20px;" id="bt_reiniciar"
                 onclick="continuaJogo()">Deseja continuar</button>
@@ -467,8 +465,8 @@
         quantidade_respondidas++;
         if (quantidade_respondidas < 7) {
             document.getElementById("parabens_acertou").style.display = "flex";
-            document.getElementById("valor_pergunta_atual_1").innerHTML = valor_cada_questao[quantidade_respondidas];
-            document.getElementById("valor_pergunta_proxima").innerHTML = valor_cada_questao[quantidade_respondidas + 1];
+            document.getElementById("valor_pergunta_atual_1").innerHTML = "Pontos: "+ valor_cada_questao[quantidade_respondidas];
+            document.getElementById("valor_pergunta_proxima").innerHTML = "Pontos: "+ valor_cada_questao[quantidade_respondidas + 1];
             var nova_pergunta = quantidade_respondidas + quant_pulos;
             carregaPergunta(array_ordem_perguntas[nova_pergunta]);
         }
