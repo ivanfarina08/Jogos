@@ -12,12 +12,12 @@
 </head>
 
 
-<body id="fundo-showdomilhao">
+<body id="fundo-showdomilhao"  style="background-color: #F4FC02BA;">
     <section style="background-color: rgba(255, 255, 255, 0.425); height: 100vh; width: 100%;">
         <h1 style="text-align: center; padding-top: 10px; font-size: 2em;" id="pergunta">Quem foi o codificador da
             doutrina espírita?</h1>
         <div class="alinhamento-horizontal centralizar-conteudo espacamento-milhao-celular">
-            <img src="img/showdomilhao/foto_professor.PNG" alt="" class="largura-50">
+            <img src="img/showdomilhao/foto_professor_sem_fundo.png" alt="" class="largura-50">
         </div>
         <section class="ordenar-coluna">
             <input type="radio" class="btn-check" name="options-outlined" id="1" autocomplete="off">
@@ -38,24 +38,22 @@
                 <button type="button" class="btn espacamento-milhao-celular tamanho-fonte-celular largura-50"
                     id="meuBotao" disabled onclick="mostrarSelecionado()">Confirmar</button>
             </div>
-            <div style="display: flex;flex-direction: row; justify-content: center;">
-                <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="quant_pergunta"></h1>
-                <h1 style="text-align: center; padding: 20px;font-size: 2em;">Pontos:</h1>
+            <div style="display: flex;flex-direction: row; justify-content: space-between;align-items: center;">
                 <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="valor_pergunta"></h1>
+                <h1 style="text-align: center; padding: 20px;font-size: 2em;" id="quant_pergunta"></h1>                
             </div>
         </section>
         <div class="container text-center" id="mensagemErrou">
-            <h1>Que penaa! A resposta correta era</h1><br>
+            <h1>Que penaa! A resposta correta é:</h1><br>
             <h1 id="respostaCerta"></h1><br>
             <button id="bt_reiniciar" onclick="resetaJogo()">Deseja reiniciar o jogo?</button>
         </div>
         <div class="container text-center" id="parabens_acertou">
-            <h1>Você acertou e ganhou</h1><br>
+            <h1>Você acertou!!</h1><br>
             <h1 id="valor_pergunta_atual_1"></h1><br>
-            <h1>Próxima pergunta valendo</h1><br>
-            <h1 id="valor_pergunta_proxima"></h1>
+            <h1 id="valor_pergunta_proxima"></h1><br><br>
             <button class="tamanho-fonte-celular" style="margin-top: 20px;" id="bt_reiniciar"
-                onclick="continuaJogo()">Deseja continuar</button>
+                onclick="continuaJogo()">Deseja continuar</button><br>
             <button class="tamanho-fonte-celular" style="margin: 10px;" id="bt_reiniciar" onclick="paraJogo()">Deseja
                 Parar</button>
         </div>
@@ -467,8 +465,8 @@
         quantidade_respondidas++;
         if (quantidade_respondidas < 7) {
             document.getElementById("parabens_acertou").style.display = "flex";
-            document.getElementById("valor_pergunta_atual_1").innerHTML = "Pontos: " + valor_cada_questao[quantidade_respondidas];
-            document.getElementById("valor_pergunta_proxima").innerHTML = "Pontos: " + valor_cada_questao[quantidade_respondidas + 1];
+            document.getElementById("valor_pergunta_atual_1").innerHTML = "Pontuação atual: " + valor_cada_questao[quantidade_respondidas];
+            document.getElementById("valor_pergunta_proxima").innerHTML = "Próxima pergunta: " + valor_cada_questao[quantidade_respondidas + 1];
             var nova_pergunta = quantidade_respondidas + quant_pulos;
             carregaPergunta(array_ordem_perguntas[nova_pergunta]);
         }
@@ -530,7 +528,7 @@
         var opcao2 = document.getElementById('resposta2').innerHTML = questao.opcao2;
         var opcao3 = document.getElementById('resposta3').innerHTML = questao.opcao3;
         var quant_pergunta = document.getElementById('quant_pergunta').innerHTML = quantidade_respondidas + 1 + '/' + 7;
-        var quant_pergunta = document.getElementById('valor_pergunta').innerHTML = valor_cada_questao[quantidade_respondidas];
+        var quant_pergunta = document.getElementById('valor_pergunta').innerHTML = "Pontos: "+valor_cada_questao[quantidade_respondidas];
         resposta = questao.resposta;
     }
 
