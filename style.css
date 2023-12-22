@@ -194,5 +194,9 @@ row {
         display: none;
     }
 
+    .tamanho-fonte-celular{
+        padding: 10px;
+    }
+
     
 }
