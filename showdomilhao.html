@@ -296,32 +296,32 @@
         {
             "id": 25,
             "pergunta": "Em que dia, mês e ano desencarnou Allan Kardec?",
-            "opcao1": " 31 março 1867",
+            "opcao1": "31 março 1867",
             "opcao2": "29 abril 1868",
-            "opcao3": "31 março1869",
+            "opcao3": "31 março 1869",
             "resposta": "31 março 1869"
         },
         {
 
             "id": 26,
             "pergunta": "Em que ano foi publicado o livro Há 2000 anos?",
-            "opcao1": " 1938",
+            "opcao1": "1938",
             "opcao2": "1939",
             "opcao3": "1937",
             "resposta": "1939"
         },
         {
             "id": 27,
-            "pergunta": "Como chama o espírito que ditou as obras chamada 'A vida no Mundo Espiritual?'",
-            "opcao1": " Emmanuel",
+            "pergunta": "Como chama o espírito que ditou as obras chamada 'A vida no Mundo Espiritual'?",
+            "opcao1": "Emmanuel",
             "opcao2": "André Luiz",
             "opcao3": "Irmão X",
             "resposta": "André Luiz"
         },
         {
             "id": 28,
-            "pergunta": "Como chama o primeiro livro da obra chamada 'A vida no Mundo Espiritual?'",
-            "opcao1": " Nosso Lar",
+            "pergunta": "Como chama o primeiro livro da obra chamada 'A vida no Mundo Espiritual'?",
+            "opcao1": "Nosso Lar",
             "opcao2": "Libertação",
             "opcao3": "No Mundo Maior",
             "resposta": "Nosso Lar"
@@ -329,20 +329,22 @@
         {
             "id": 29,
             "pergunta": "Como chamava a primeira mãe de Chico Xavier?",
-            "opcao1": " Maria João de Deus",
+            "opcao1": "Maria João de Deus",
             "opcao2": "Marta da Silva",
-            "opcao3": "Neide Araujo",
+            "opcao3": "Neide Araújo",
             "resposta": "Maria João de Deus"
         },
         {
             "id": 30,
             "pergunta": "Em que ano nasceu Chico Xavier?",
-            "opcao1": " 1912",
+            "opcao1": "1912",
             "opcao2": "1910",
             "opcao3": "1911",
             "resposta": "1912"
         },
     ]
+
+
 
 
 
@@ -465,8 +467,8 @@
         quantidade_respondidas++;
         if (quantidade_respondidas < 7) {
             document.getElementById("parabens_acertou").style.display = "flex";
-            document.getElementById("valor_pergunta_atual_1").innerHTML = "Pontos: "+ valor_cada_questao[quantidade_respondidas];
-            document.getElementById("valor_pergunta_proxima").innerHTML = "Pontos: "+ valor_cada_questao[quantidade_respondidas + 1];
+            document.getElementById("valor_pergunta_atual_1").innerHTML = "Pontos: " + valor_cada_questao[quantidade_respondidas];
+            document.getElementById("valor_pergunta_proxima").innerHTML = "Pontos: " + valor_cada_questao[quantidade_respondidas + 1];
             var nova_pergunta = quantidade_respondidas + quant_pulos;
             carregaPergunta(array_ordem_perguntas[nova_pergunta]);
         }
