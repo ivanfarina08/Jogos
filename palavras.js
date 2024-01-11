@@ -1641,6 +1641,9 @@ export const PALAVRAS = [
   'corpo',
   'livro',
   'morte',
+  'saber',
+  'carma',
+  'chute',
   'poste',
   'teste',
 ]

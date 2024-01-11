@@ -5,4 +5,7 @@ export const PALAVRAS_VALIDAS = [
     'corpo',
     'livro',
     'morte',
+    'saber',
+    'chute',
+    'carma',
   ]
