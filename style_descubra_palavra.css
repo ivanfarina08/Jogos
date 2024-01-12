@@ -56,7 +56,13 @@ h1 {
   font-size: 1rem;
   font-weight: 700;
   margin: 0 2px;
-  padding: 7px;
+  width: 30px;
+  padding: 5px;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+#del, #enter{
+  width: fit-content;
+  padding: 5px;
 }
