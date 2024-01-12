@@ -12,11 +12,6 @@ img {
     padding: 5px;
 }
 
-col,row{
-    padding: 0;
-    margin: 0;
-}
-
 .ordenar-coluna {
     display: flex;
     flex-direction: column;
