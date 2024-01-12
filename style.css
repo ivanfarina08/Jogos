@@ -46,7 +46,6 @@ body {
     font-family: 'Roboto', 'Segoe UI', sans-serif;
     text-transform: uppercase;
     color: var(--color);
-    font-weight: bold;
 }
 
 .botao_jogo_parado::after,
