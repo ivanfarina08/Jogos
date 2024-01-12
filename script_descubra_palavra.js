@@ -1,5 +1,5 @@
-import { PALAVRAS } from "./palavras.js";
-import { PALAVRAS_VALIDAS } from "./palavras_validas.js";
+import { PALAVRAS } from "./dados_descubra_palavras.js";
+import { PALAVRAS_VALIDAS } from "./dados_descubra_palavras_validas.js";
 
 const numero_de_tentativas = 6;
 let guessesRemaining = numero_de_tentativas;

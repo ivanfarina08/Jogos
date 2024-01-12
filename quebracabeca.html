@@ -6,113 +6,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style_quebracabeca.css">
     <title>Jogo da Memória</title>
     <link rel="icon" type="image/x-icon" href="/img/jogo_memoria.png">
 </head>
 
-<body style="background-color: #F4FC02BA;">
-    <div class="container text-center" id="computador">
+<body>
+    <div class="container text-center computador">
         <div class="row">
             <div class="col">
-                <img src="img/virada.png" alt="" id="img0" onclick="vira_carta(0)">
+                <img src="img/virada.png" alt="" id="img0" onclick="clicaCarta(0)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img1" onclick="vira_carta(1)">
+                <img src="img/virada.png" alt="" id="img1" onclick="clicaCarta(1)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img2" onclick="vira_carta(2)">
+                <img src="img/virada.png" alt="" id="img2" onclick="clicaCarta(2)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img3" onclick="vira_carta(3)">
+                <img src="img/virada.png" alt="" id="img3" onclick="clicaCarta(3)">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <img src="img/virada.png" alt="" id="img4" onclick="vira_carta(4)">
+                <img src="img/virada.png" alt="" id="img4" onclick="clicaCarta(4)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img5" onclick="vira_carta(5)">
+                <img src="img/virada.png" alt="" id="img5" onclick="clicaCarta(5)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img6" onclick="vira_carta(6)">
+                <img src="img/virada.png" alt="" id="img6" onclick="clicaCarta(6)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img7" onclick="vira_carta(7)">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img8" onclick="vira_carta(8)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img9" onclick="vira_carta(9)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img10" onclick="vira_carta(10)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img11" onclick="vira_carta(11)">
-            </div>
-        </div>
-    </div>
-
-    <div class="container text-center" id="celular">
-        <div class="row">
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img12" onclick="vira_carta(12)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img13" onclick="vira_carta(13)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img14" onclick="vira_carta(14)">
+                <img src="img/virada.png" alt="" id="img7" onclick="clicaCarta(7)">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <img src="img/virada.png" alt="" id="img15" onclick="vira_carta(15)">
+                <img src="img/virada.png" alt="" id="img8" onclick="clicaCarta(8)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img16" onclick="vira_carta(16)">
+                <img src="img/virada.png" alt="" id="img9" onclick="clicaCarta(9)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img17" onclick="vira_carta(17)">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img18" onclick="vira_carta(18)">
+                <img src="img/virada.png" alt="" id="img10" onclick="clicaCarta(10)">
             </div>
             <div class="col">
-                <img src="img/virada.png" alt="" id="img19" onclick="vira_carta(19)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img20" onclick="vira_carta(20)">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img21" onclick="vira_carta(21)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img22" onclick="vira_carta(22)">
-            </div>
-            <div class="col">
-                <img src="img/virada.png" alt="" id="img23" onclick="vira_carta(23)">
+                <img src="img/virada.png" alt="" id="img11" onclick="clicaCarta(11)">
             </div>
         </div>
     </div>
 
-    <div class="container text-center" id="fim_jogo">
-        <button id="bt_reiniciar" onclick="reseta_jogo()">Deseja reiniciar o jogo?</button>
+    <div class="container text-center celular">
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img12" onclick="clicaCarta(12)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img13" onclick="clicaCarta(13)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img14" onclick="clicaCarta(14)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img15" onclick="clicaCarta(15)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img16" onclick="clicaCarta(16)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img17" onclick="clicaCarta(17)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img18" onclick="clicaCarta(18)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img19" onclick="clicaCarta(19)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img20" onclick="clicaCarta(20)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img21" onclick="clicaCarta(21)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img22" onclick="clicaCarta(22)">
+            </div>
+            <div class="col">
+                <img src="img/virada.png" alt="" id="img23" onclick="clicaCarta(23)">
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center estilo_jogo_parado" id="fim_jogo">
+        <button class="botao_jogo_parado" onclick="reseta_jogo()">Deseja reiniciar o jogo?</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <script src="scripts.js"></script>
+    <script src="script_quebracabeca.js"></script>
 </body>
 
 </html>

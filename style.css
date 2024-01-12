@@ -1,45 +1,35 @@
-img {
-    width: 100%;
-    padding: 5px;
-}
-
 body {
     width: 750px;
     overflow: hidden;
+    background-color: #fbff8eba;
 }
 
-col,
-row {
-    padding: 0;
-    margin: 0;
-}
-
-#celular {
+.celular {
     display: none;
     z-index: 0;
 }
 
-#computador {
+.computador {
     display: block;
     z-index: 0;
 }
 
-#fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo,#mensagemErrou {
+.estilo_jogo_parado {
+    top: 0;
+    right: 0;
     display: none;
     flex-direction: column;
     color: white;
     position: absolute;
-    top: 0;
     background-color: rgba(31, 28, 28, 0.951);
     z-index: 1;
     height: 100vh;
     width: 100%;
-
     justify-content: center;
     align-items: center;
 }
 
-#bt_reiniciar {
+.botao_jogo_parado {
     --color: #00A97F;
     --color2: rgb(10, 25, 30);
     padding: 0.8em 1.75em;
@@ -59,8 +49,8 @@ row {
     font-weight: bold;
 }
 
-#bt_reiniciar::after,
-#bt_reiniciar::before {
+.botao_jogo_parado::after,
+.botao_jogo_parado::before {
     content: '';
     display: block;
     height: 100%;
@@ -74,99 +64,27 @@ row {
     background-color: var(--color);
 }
 
-#bt_reiniciar::before {
+.botao_jogo_parado::before {
     top: -50%;
     left: -25%;
     transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
 }
 
-#bt_reiniciar:hover::before {
+.botao_jogo_parado:hover::before {
     transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
 }
 
-#bt_reiniciar:hover::after {
+.botao_jogo_parado:hover::after {
     transform: skew(45deg) translate(-50%, -50%);
 }
 
-#bt_reiniciar:hover {
+.botao_jogo_parado:hover {
     color: var(--color2);
 }
 
-#bt_reiniciar:active {
+.botao_jogo_parado:active {
     filter: brightness(.7);
     transform: scale(.98);
-}
-
-.ordenar-coluna {
-    display: flex;
-    flex-direction: column;
-}
-
-.espacamento-milhao{
-    margin: 10px;
-}
-
-.espacamento-milhao-celular{
-    margin: 3px 10px;
-}
-
-.tamanho-fonte{
-    font-size: 1.3em;
-    color: black;
-}
-
-.tamanho-fonte-celular{
-    font-size: 1em;
-    color: black;
-}
-
-.alinhamento-horizontal{
-    display: flex;
-    flex-direction: row;
-}
-
-.largura-50{
-    width: 50%;
-    padding: 5px;
-}
-
-.centralizar-conteudo{
-    align-items: center;
-    justify-content: center;
-}
-
-.botao-milhao{
-    padding: 5px;
-}
-
-#fundo-showdomilhao{
-    background-size: cover; 
-    font-family:"Comic Sans MS", "Comic Sans",'Comic Neue', sans-serif;
-    height: 800px;
-    width: 100%;
-}
-
-.btn{
-    border: none;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-
-#btPular{
-    background-color: #ed5c53;
-}
-
-#btPular:hover{
-    background-color: #a62520;
-    color: white;
-}
-
-#meuBotao{
-    background-color: #74a7e4;
-}
-
-#meuBotao:hover{
-    background-color: #336ca5;
-    color: white;
 }
 
 @media (max-width: 600px) {
@@ -174,31 +92,16 @@ row {
         width: 100%;
     }
 
-    #fim_jogo,#parabens_acertou,#mensagemParouJogo,#mensagemGanhouJogo,#mensagemErrou{
+    .estilo_jogo_parado{
         display: none;
         width: 100%;
     }
 
-    #celular {
+    .celular {
         display: block;
     }
 
-    #fundo-showdomilhao{
-        width: 100%;
-        padding: 5px;
-    }
-
-    #espacamento-milhao-celular{
-        margin: 10px;
-    }
-
-    #computador {
+    .computador {
         display: none;
     }
-
-    .tamanho-fonte-celular{
-        padding: 10px;
-    }
-
-    
 }
