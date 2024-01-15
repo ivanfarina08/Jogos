@@ -43,6 +43,8 @@ export function limpaAmbiente() {
   for (const elem of document.getElementsByClassName("keyboard-button")) {
     elem.style.backgroundColor="buttonface";
   }
+  document.getElementById("del").style.backgroundColor="rgb(219, 91, 91)";
+  document.getElementById("enter").style.backgroundColor="rgb(82, 177, 82)";
 }
 
 function corLetraTeclado(letter, color) {
@@ -195,9 +197,6 @@ function pintaLetrasAmarelo(arrayCores, arrayPalavraGabarito) {
   for (const letraGabarito of arrayPalavraGabarito) {
     for (const letraUsuario of arrayPalavraUsuario) {
       if (letraGabarito == letraUsuario) {
-        console.log('letraGabarito: ' + letraGabarito);
-        console.log('letraUsuario: ' + letraUsuario);
-        console.log('cont: ' + cont);
         arrayCores[cont] = "yellow";
       }
       cont++;
