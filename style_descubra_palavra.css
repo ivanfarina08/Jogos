@@ -54,7 +54,7 @@ h1 {
 
 .keyboard-button {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0 2px;
   width: 30px;
   padding: 5px;
@@ -75,4 +75,5 @@ button {
   border: none;
   box-shadow: 0.7px 1.4px 1.4px hsl(0deg 0% 0% / 0.48);
   border-radius: 4px;
+  font-family:"Comic Sans MS", "Comic Sans",'Comic Neue', sans-serif;
 }
