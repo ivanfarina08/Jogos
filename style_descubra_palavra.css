@@ -95,14 +95,14 @@ button {
 
 .letter.right {
   background-color: rgb(85, 189, 85);
-  border: none
+  border: none;
 }
 
 p .letter {
   font-size: 1em;
   height: 1.75em;
   vertical-align: 15%;
-  width: 1.75em
+  width: 1.75em;
 }
 
 .example {
