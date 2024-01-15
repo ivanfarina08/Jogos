@@ -10,7 +10,7 @@ let palavra_gabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALI
 console.log(palavra_gabarito);
 
 
-function initBoard() {
+function inicializaJogo() {
   let board = document.getElementById("game-board");
 
   for (let i = 0; i < numero_de_tentativas; i++) {
@@ -75,7 +75,7 @@ function checkGuess() {
     return;
   }
 
-  var letterColor = ["gray", "gray", "gray", "gray", "gray"];
+  let letterColor = ["gray", "gray", "gray", "gray", "gray"];
 
   //check green
   for (let i = 0; i < 5; i++) {
@@ -116,7 +116,6 @@ function checkGuess() {
   if (guessString === palavra_gabarito) {
     toastr.success("Parabéns você acertoou!!");
     guessesRemaining = 0;
-    return;
   } else {
     guessesRemaining -= 1;
     currentGuess = [];
@@ -150,7 +149,6 @@ const animateCSS = (element, animation, prefix = "animate__") =>
   // We create a Promise and return it
   new Promise((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
-    // const node = document.querySelector(element);
     const node = element;
     node.style.setProperty("--animate-duration", "0.3s");
 
@@ -205,4 +203,4 @@ document.getElementById("keyboard-cont").addEventListener("click", (e) => {
   document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));
 });
 
-initBoard();
+inicializaJogo();

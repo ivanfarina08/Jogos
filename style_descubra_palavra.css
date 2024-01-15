@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -62,11 +62,17 @@ h1 {
   text-transform: uppercase;
 }
 
-#del, #enter{
+#del,
+#enter {
   width: fit-content;
   padding: 5px;
 }
 
-button{
-  border-radius: 0;
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  box-shadow: 0.7px 1.4px 1.4px hsl(0deg 0% 0% / 0.48);
+  border-radius: 4px;
 }
