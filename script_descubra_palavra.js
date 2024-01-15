@@ -2,15 +2,21 @@ import { PALAVRAS } from "./dados_descubra_palavras.js";
 import { PALAVRAS_VALIDAS } from "./dados_descubra_palavras_validas.js";
 
 const numero_de_tentativas = 6;
-let guessesRemaining = numero_de_tentativas;
-let currentGuess = [];
+let linhaAtual = numero_de_tentativas;
+let arrayPalavraUsuario = [];
 let proximaLetra = 0;
-let palavra_gabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
+let palavraGabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
 
-console.log(palavra_gabarito);
+console.log(palavraGabarito);
 
 
 function inicializaJogo() {
+  document.getElementById('mensagemTutorial').style.display = "flex";  
+}
+
+export function criaAmbiente(){
+  document.getElementById('mensagemTutorial').style.display = "none"; 
+   
   let board = document.getElementById("game-board");
 
   for (let i = 0; i < numero_de_tentativas; i++) {
@@ -27,7 +33,19 @@ function inicializaJogo() {
   }
 }
 
-function shadeKeyBoard(letter, color) {
+export function limpaAmbiente() {
+  let board = document.getElementById("game-board");
+
+  // Remove todas as divs filhas do elemento com id "game-board"
+  while (board.firstChild) {
+    board.removeChild(board.firstChild);
+  }
+  for (const elem of document.getElementsByClassName("keyboard-button")) {
+    elem.style.backgroundColor="buttonface";
+  }
+}
+
+function corLetraTeclado(letter, color) {
   for (const elem of document.getElementsByClassName("keyboard-button")) {
     if (elem.textContent === letter) {
       let oldColor = elem.style.backgroundColor;
@@ -45,103 +63,26 @@ function shadeKeyBoard(letter, color) {
   }
 }
 
-function deleteLetter() {
-  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
+function deletarLetra() {
+  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
   let box = row.children[proximaLetra - 1];
   box.textContent = "";
   box.classList.remove("filled-box");
-  currentGuess.pop();
-  console.log(currentGuess);
+  arrayPalavraUsuario.pop();
   proximaLetra -= 1;
 }
 
-function checkGuess() {
-  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
-  let guessString = "";
-  let rightGuess = Array.from(palavra_gabarito);
-
-  for (const val of currentGuess) {
-    console.log(currentGuess);
-    guessString += val;
-  }
-
-  if (guessString.length != 5) {
-    toastr.error("Quantidade de letras insuficiente");
-    return;
-  }
-
-  if (!PALAVRAS.includes(guessString)) {
-    toastr.error("A palavra não está na lista de palavras válidas!");
-    return;
-  }
-
-  let letterColor = ["gray", "gray", "gray", "gray", "gray"];
-
-  //check green
-  for (let i = 0; i < 5; i++) {
-    if (rightGuess[i] == currentGuess[i]) {
-      console.log(currentGuess);
-      letterColor[i] = "green";
-      rightGuess[i] = "#";
-    }
-  }
-
-  //check yellow
-  //checking guess letters
-  for (let i = 0; i < 5; i++) {
-    if (letterColor[i] == "green") continue;
-
-    //checking right letters
-    for (let j = 0; j < 5; j++) {
-      if (rightGuess[j] == currentGuess[i]) {
-        console.log(currentGuess);
-        letterColor[i] = "yellow";
-        rightGuess[j] = "#";
-      }
-    }
-  }
-
-  for (let i = 0; i < 5; i++) {
-    let box = row.children[i];
-    let delay = 250 * i;
-    setTimeout(() => {
-      //flip box
-      animateCSS(box, "flipInX");
-      //shade box
-      box.style.backgroundColor = letterColor[i];
-      shadeKeyBoard(guessString.charAt(i) + "", letterColor[i]);
-    }, delay);
-  }
-
-  if (guessString === palavra_gabarito) {
-    toastr.success("Parabéns você acertoou!!");
-    guessesRemaining = 0;
-  } else {
-    guessesRemaining -= 1;
-    currentGuess = [];
-    console.log(currentGuess);
-    proximaLetra = 0;
-
-    if (guessesRemaining === 0) {
-      toastr.error("Fim de jogo!");
-      toastr.info(`A palavra correta era: "${palavra_gabarito}"`);
-    }
-  }
-}
-
-function insertLetter(teclaClicada) {
+function inserirLetra(teclaClicada) {
   if (proximaLetra === 5) {
     return;
   }
   teclaClicada = teclaClicada.toLowerCase();
-
-  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining];
+  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
   let box = row.children[proximaLetra];
   animateCSS(box, "pulse");
   box.textContent = teclaClicada;
   box.classList.add("filled-box");
-  currentGuess.push(teclaClicada);
-  console.log(currentGuess);
+  arrayPalavraUsuario.push(teclaClicada);
   proximaLetra += 1;
 }
 
@@ -165,18 +106,18 @@ const animateCSS = (element, animation, prefix = "animate__") =>
   });
 
 document.addEventListener("keyup", (e) => {
-  if (guessesRemaining === 0) {
+  if (linhaAtual === 0) {
     return;
   }
 
   let teclaClicada = String(e.key);
   if (teclaClicada === "Backspace" && proximaLetra !== 0) {
-    deleteLetter();
+    deletarLetra();
     return;
   }
 
   if (teclaClicada === "Enter") {
-    checkGuess();
+    checarPalavra();
     return;
   }
 
@@ -184,7 +125,7 @@ document.addEventListener("keyup", (e) => {
   if (!found || found.length > 1) {
     return;
   } else {
-    insertLetter(teclaClicada);
+    inserirLetra(teclaClicada);
   }
 });
 
@@ -203,4 +144,134 @@ document.getElementById("keyboard-cont").addEventListener("click", (e) => {
   document.dispatchEvent(new KeyboardEvent("keyup", { key: key }));
 });
 
-inicializaJogo();
+function checarPalavra() {
+  let linha = document.getElementsByClassName("letter-row")[6 - linhaAtual];
+  let palavraUsuario = "";
+  let arrayPalavraGabarito = Array.from(palavraGabarito);
+
+  palavraUsuario = juntaArrayPalavraUsuario(palavraUsuario);
+  let palavraValida = validaPalavra(palavraUsuario);
+  if (palavraValida) {
+    pintaLetras(arrayPalavraGabarito,linha,palavraUsuario);
+    resultadoPalavra(palavraUsuario);
+  }
+}
+
+function juntaArrayPalavraUsuario(palavraUsuario){
+  for (const letra of arrayPalavraUsuario) {
+    palavraUsuario += letra;
+  }
+  return palavraUsuario;
+}
+
+function validaPalavra(palavraUsuario) {
+  if (palavraUsuario.length != 5) {
+    document.getElementById("mensagemLetrasInsuficiente").style.display="flex";
+    setTimeout(() => {
+      document.getElementById("mensagemLetrasInsuficiente").style.display="none";
+    }, 2000);
+    return false;
+  }
+
+  if (!PALAVRAS.includes(palavraUsuario)) {
+    document.getElementById("mensagemPalavrasValidas").style.display="flex";
+    setTimeout(() => {
+      document.getElementById("mensagemPalavrasValidas").style.display="none";
+    }, 4000);
+    return false;
+  }
+  return true;
+}
+
+function pintaLetras(arrayPalavraGabarito,linha,palavraUsuario){
+  let arrayCores = ["gray", "gray", "gray", "gray", "gray"];
+  arrayCores = pintaLetrasAmarelo(arrayCores, arrayPalavraGabarito);
+  pintaLetrasVerde(arrayCores, arrayPalavraGabarito);
+  animarResultadoLetra(linha, palavraUsuario, arrayCores);
+}
+
+function pintaLetrasAmarelo(arrayCores, arrayPalavraGabarito) {
+  let cont = 0;
+  for (const letraGabarito of arrayPalavraGabarito) {
+    for (const letraUsuario of arrayPalavraUsuario) {
+      if (letraGabarito == letraUsuario) {
+        console.log('letraGabarito: ' + letraGabarito);
+        console.log('letraUsuario: ' + letraUsuario);
+        console.log('cont: ' + cont);
+        arrayCores[cont] = "yellow";
+      }
+      cont++;
+    }
+    cont = 0;
+  }
+  return arrayCores;
+}
+
+function pintaLetrasVerde(arrayCores, arrayPalavraGabarito) {
+  let cont = 0;
+  for (const letra of arrayPalavraUsuario) {
+    if (arrayPalavraGabarito[cont] == letra) {
+      arrayCores[cont] = "green";
+      arrayPalavraGabarito[cont] = "#";
+    }
+    cont++;
+  }
+  return arrayCores;
+}
+
+function animarResultadoLetra(linha, palavraUsuario, arrayCores) {
+  for (let i = 0; i < 5; i++) {
+    let box = linha.children[i];
+    let delay = 250 * i;
+    setTimeout(() => {
+      //flip box
+      animateCSS(box, "flipInX");
+      //shade box
+      box.style.backgroundColor = arrayCores[i];
+      corLetraTeclado(palavraUsuario.charAt(i) + "", arrayCores[i]);
+    }, delay);
+  }
+}
+
+function resultadoPalavra(palavraUsuario){
+  if (palavraUsuario === palavraGabarito) {
+    campeao();
+  } else {
+    errouPalavra();
+  }
+}
+
+function campeao(){
+  document.getElementById("mensagemGanhou").style.display="flex";
+  linhaAtual = 0;
+}
+
+function errouPalavra(){
+  linhaAtual -= 1;
+  arrayPalavraUsuario = [];
+  proximaLetra = 0;
+  perdeuJogo();  
+}
+
+function perdeuJogo(){
+  if (linhaAtual === 0) {
+    document.getElementById("mensagemPerdeu").style.display="flex";
+    document.getElementById("palavraGabarito").innerHTML=palavraGabarito;
+  }
+}
+
+function jogarNovamente(){
+  document.getElementById("mensagemGanhou").style.display="none";
+  document.getElementById("mensagemPerdeu").style.display="none";
+  linhaAtual = numero_de_tentativas;
+  arrayPalavraUsuario = [];
+  proximaLetra = 0;
+  palavraGabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
+  console.log(palavraGabarito);
+  limpaAmbiente();
+  criaAmbiente();
+}
+
+inicializaJogo()
+window.criaAmbiente = criaAmbiente;
+window.jogarNovamente = jogarNovamente;

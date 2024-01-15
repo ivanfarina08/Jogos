@@ -75,5 +75,65 @@ button {
   border: none;
   box-shadow: 0.7px 1.4px 1.4px hsl(0deg 0% 0% / 0.48);
   border-radius: 4px;
-  font-family:"Comic Sans MS", "Comic Sans",'Comic Neue', sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', sans-serif;
+}
+
+.letter {
+  align-items: center;
+  border: .125em solid #4c4347;
+  border-radius: 10%;
+  box-sizing: border-box;
+  color: #fafaff;
+  display: inline-flex;
+  font-weight: 500;
+  height: 2em;
+  justify-content: center;
+  margin: 0 .05em;
+  width: 2em;
+  font-size: 3.5em;
+}
+
+.letter.right {
+  background-color: rgb(85, 189, 85);
+  border: none
+}
+
+p .letter {
+  font-size: 1em;
+  height: 1.75em;
+  vertical-align: 15%;
+  width: 1.75em
+}
+
+.example {
+  font-size: .333em;
+}
+
+.letter.place {
+  background-color: rgb(187, 187, 81);
+  border: none;
+}
+
+.letter.wrong {
+  background-color: #191516;
+  border: none;
+  color: #5e5c5c;
+}
+
+p {
+  color: #bbb;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.35em;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.estilo_jogo_parado {
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
 }

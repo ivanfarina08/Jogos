@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,13 @@
     <title>Descubra a Palavra</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style_descubra_palavra.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
+
 <body>
     <h1> Descubra a Palavra </h1>
-    
+
     <div id="game-board">
 
     </div>
@@ -54,8 +56,75 @@
         </div>
     </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="script_descubra_palavra.js" type="module"></script>
+    <div class="estilo_jogo_parado" id="mensagemTutorial" style="justify-content: left;align-items: left;">
+        <p tabindex="0">Descubra a palavra certa em 6 tentativas.
+            Depois de cada tentativa, as peças mostram o quão perto você está da solução.
+        </p>
+        <div class="example">
+            <span tabindex="0" role="text" aria-label="letra T correta" class="letter right">T</span>
+            <span tabindex="0" role="text" aria-label="letra U" class="letter">U</span>
+            <span tabindex="0" role="text" aria-label="letra R" class="letter">R</span>
+            <span tabindex="0" role="text" aria-label="letra M" class="letter">M</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
+        </div>
+
+        <p tabindex="0">A letra <span class="letter right">T</span> faz parte da palavra e está na
+            posição correta.</p>
+
+        <div class="example">
+            <span tabindex="0" role="text" aria-label="letra V" class="letter">V</span>
+            <span tabindex="0" role="text" aria-label="letra I" class="letter">I</span>
+            <span tabindex="0" role="text" aria-label="letra O em outro local" class="letter place">O</span>
+            <span tabindex="0" role="text" aria-label="letra L" class="letter">L</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
+        </div>
+
+        <p tabindex="0">A letra <span class="letter place">O</span> faz parte da palavra mas em outra posição.</p>
+
+        <div class="example">
+            <span tabindex="0" role="text" aria-label="letra P" class="letter">P</span>
+            <span tabindex="0" role="text" aria-label="letra U" class="letter">U</span>
+            <span tabindex="0" role="text" aria-label="letra L" class="letter">L</span>
+            <span tabindex="0" role="text" aria-label="letra G errada" class="letter wrong">G</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
+        </div>
+
+        <p tabindex="0">A letra <span class="letter wrong">G</span> não faz parte da palavra.</p>
+
+        <p tabindex="0">Os acentos são preenchidos automaticamente, e não são considerados nas dicas.</p>
+
+        <p tabindex="0">As palavras podem possuir letras repetidas.</p>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="criaAmbiente()">Iniciar
+            Jogo</button><br>
+    </div>
+
+
+    <div class="text-center estilo_jogo_parado" id="mensagemLetrasInsuficiente">
+        <h1>Quantidade de letras insuficiente</h1><br>
+    </div>
+
+    <div class="text-center estilo_jogo_parado" id="mensagemPalavrasValidas">
+        <h1>A palavra não está na lista de palavras válidas!</h1><br>
+    </div>
+
+
+    <div class="text-center estilo_jogo_parado" id="mensagemGanhou">
+        <h1>Você acertooou!!</h1><br>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="jogarNovamente()">Jogar novamente</button><br>
+    </div>
+
+
+    <div class="text-center estilo_jogo_parado" id="mensagemPerdeu">
+        <h1>Não foi dessa vez :((</h1><br>
+        <h1>A palavra era: </h1><br>
+        <h1 id="palavraGabarito"></h1><br>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="jogarNovamente()">Jogar novamente</button><br>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script_descubra_palavra.js" type="module"></script>
 </body>
+
 </html>
