@@ -136,10 +136,9 @@ p {
   color: #bbb;
   font-size: 1.5em;
   font-weight: 300;
-  line-height: 1.35em;
   display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   text-align: center;
@@ -151,7 +150,7 @@ p {
 
 @media (max-width: 600px) {
   p{
-    font-size: 1em;
+    font-size: 1.15em;
   }
   .botao_jogo_parado{
     width: initial;
