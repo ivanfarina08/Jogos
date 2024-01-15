@@ -102,7 +102,7 @@ button {
   justify-content: center;
   margin: 0 .05em;
   width: 2em;
-  font-size: 3.5em;
+  font-size: 4em;
 }
 
 .letter.right {
@@ -112,13 +112,11 @@ button {
 
 p .letter {
   font-size: 1em;
-  height: 1.75em;
-  vertical-align: 15%;
-  width: 1.75em;
 }
 
 .example {
   font-size: .333em;
+  margin: 10px;
 }
 
 .letter.place {
@@ -134,24 +132,29 @@ p .letter {
 
 p {
   color: #bbb;
-  font-size: 1.5em;
-  font-weight: 300;
-  display: block;
-  margin-block-start: .5em;
-  margin-block-end: .5em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
   text-align: center;
+  margin: 10px;
+  font-size: 1.4em;
 }
 
 .botao_jogo_parado{
   width: 25%;
 }
 
+#mensagemTutorial{
+  box-sizing: border-box;
+}
+
 @media (max-width: 600px) {
   p{
-    font-size: 1.15em;
+    font-size: 1.1em;
+    margin: 5px;
   }
+
+  .letter {
+    font-size: 3em;
+  }
+
   .botao_jogo_parado{
     width: initial;
   }
