@@ -10,10 +10,25 @@
     <link rel="stylesheet" href="style_descubra_palavra.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
-    <h1> Descubra a Palavra </h1>
+    <div class="cabecalho">
+        <button class="botoes-cabecalho" id="btn_ajuda" onclick="abrirTutorial()">
+            <span class="material-symbols-outlined">
+                question_mark
+            </span>
+        </button>
+        <div class="transparent"></div>
+        <div class="transparent"></div>
+        <button class="botoes-cabecalho" id="btn_dica" onclick="darDica()">
+            <span class="material-symbols-outlined">
+                lightbulb
+            </span>
+        </button>
+    </div>
 
     <div id="game-board">
 
@@ -56,47 +71,49 @@
     </div>
 
     <div class="text-center estilo_jogo_parado" id="mensagemTutorial" style="padding: 5px;">
-        
-            <p tabindex="0">Descubra a palavra certa em 6 tentativas. Depois de cada tentativa, as peças mostram o quão
-                perto você está da solução.</p>
-            <div class="example">
-                <span tabindex="0" role="text" aria-label="letra T correta" class="letter right">T</span>
-                <span tabindex="0" role="text" aria-label="letra U" class="letter">U</span>
-                <span tabindex="0" role="text" aria-label="letra R" class="letter">R</span>
-                <span tabindex="0" role="text" aria-label="letra M" class="letter">M</span>
-                <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
-            </div>
 
-            <p tabindex="0">A letra <span class="letter right">T</span> faz parte da palavra e está na
-                posição correta.</p>
+        <p tabindex="0">Descubra a palavra certa em 6 tentativas. Depois de cada tentativa, as peças mostram o quão
+            perto você está da solução.</p>
+        <div class="example">
+            <span tabindex="0" role="text" aria-label="letra T correta" class="letter right">J</span>
+            <span tabindex="0" role="text" aria-label="letra U" class="letter">E</span>
+            <span tabindex="0" role="text" aria-label="letra R" class="letter">S</span>
+            <span tabindex="0" role="text" aria-label="letra M" class="letter">U</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">S</span>
+        </div>
 
-            <div class="example">
-                <span tabindex="0" role="text" aria-label="letra V" class="letter">V</span>
-                <span tabindex="0" role="text" aria-label="letra I" class="letter">I</span>
-                <span tabindex="0" role="text" aria-label="letra O em outro local" class="letter place">O</span>
-                <span tabindex="0" role="text" aria-label="letra L" class="letter">L</span>
-                <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
-            </div>
+        <p tabindex="0">A letra <span class="letter right">J</span> faz parte da palavra e está na
+            posição correta.</p>
 
-            <p tabindex="0">A letra <span class="letter place">O</span> faz parte da palavra mas em outra posição.</p>
+        <div class="example">
+            <span tabindex="0" role="text" aria-label="letra V" class="letter">M</span>
+            <span tabindex="0" role="text" aria-label="letra I" class="letter">A</span>
+            <span tabindex="0" role="text" aria-label="letra O em outro local" class="letter place">R</span>
+            <span tabindex="0" role="text" aria-label="letra L" class="letter">I</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
+        </div>
 
-            <div class="example">
-                <span tabindex="0" role="text" aria-label="letra P" class="letter">P</span>
-                <span tabindex="0" role="text" aria-label="letra U" class="letter">U</span>
-                <span tabindex="0" role="text" aria-label="letra L" class="letter">L</span>
-                <span tabindex="0" role="text" aria-label="letra G errada" class="letter wrong">G</span>
-                <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
-            </div>
+        <p tabindex="0">A letra <span class="letter place">R</span> faz parte da palavra mas em outra posição.</p>
 
-            <p tabindex="0">A letra <span class="letter wrong">G</span> não faz parte da palavra.</p>
+        <div class="example">
+            <span tabindex="0" role="text" aria-label="letra P" class="letter">L</span>
+            <span tabindex="0" role="text" aria-label="letra U" class="letter">I</span>
+            <span tabindex="0" role="text" aria-label="letra L" class="letter">V</span>
+            <span tabindex="0" role="text" aria-label="letra G errada" class="letter wrong">R</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">O</span>
+        </div>
 
-            <p tabindex="0">As palavras não possuem acento.</p>
+        <p tabindex="0">A letra <span class="letter wrong">R</span> não faz parte da palavra.</p>
 
-            <p tabindex="0">As palavras podem possuir letras repetidas.</p>
-            <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar"
-                onclick="criaAmbiente()">Iniciar
-                Jogo</button>
-        
+        <p tabindex="0">As palavras não possuem acento.</p>
+
+        <p tabindex="0">As palavras podem possuir letras repetidas.</p>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="criaAmbiente()">Iniciar
+            Jogo</button>
+
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_continuar" onclick="continuarJogo()">Continuar
+            Jogo</button>
+
     </div>
 
 

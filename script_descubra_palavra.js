@@ -172,14 +172,26 @@ function validaPalavra(palavraUsuario) {
     setTimeout(() => {
       document.getElementById("mensagemLetrasInsuficiente").style.display="none";
     }, 2000);
+
     return false;
   }
 
   if (!PALAVRAS.includes(palavraUsuario)) {
     document.getElementById("mensagemPalavrasValidas").style.display="flex";
     setTimeout(() => {
+      //console.log('antes: '+arrayPalavraUsuario);
       document.getElementById("mensagemPalavrasValidas").style.display="none";
-    }, 4000);
+      arrayPalavraUsuario=[];
+      //console.log('depois: '+arrayPalavraUsuario);
+      proximaLetra=0;
+      let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
+      row.innerHTML = '';
+      for (let j = 0; j < 5; j++) {
+        let box = document.createElement("div");
+        box.className = "letter-box";
+        row.appendChild(box);
+      }
+    }, 2000);
     return false;
   }
   return true;
@@ -271,6 +283,22 @@ function jogarNovamente(){
   criaAmbiente();
 }
 
+function abrirTutorial(){
+  let mensagemTutorial = document.getElementById("mensagemTutorial");
+  mensagemTutorial.style.display = "flex";
+  let bt_continuar = document.getElementById("bt_continuar");
+  bt_continuar.style.display = "block";
+  let bt_reiniciar = document.getElementById("bt_reiniciar");
+  bt_reiniciar.style.display = "none";
+}
+
+function continuarJogo(){
+  let mensagemTutorial = document.getElementById("mensagemTutorial");
+  mensagemTutorial.style.display = "none";
+}
+
 inicializaJogo()
 window.criaAmbiente = criaAmbiente;
 window.jogarNovamente = jogarNovamente;
+window.abrirTutorial = abrirTutorial;
+window.continuarJogo = continuarJogo;

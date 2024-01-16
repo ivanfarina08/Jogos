@@ -1712,4 +1712,7 @@ export const PALAVRAS = [
   "pares",
   "licao",
   "pague",
+  "conta",
+  "ronca",
+  "maria",
 ]
