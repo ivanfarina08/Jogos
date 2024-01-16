@@ -86,6 +86,7 @@ h1 {
   padding: 10px;
   cursor: pointer;
   text-transform: uppercase;
+  color: black;
 }
 
 #del,

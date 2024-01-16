@@ -55,4 +55,5 @@ export const PALAVRAS_VALIDAS = [
   "sonho",
   "poema",
   "licao",
+  "praca",
 ]

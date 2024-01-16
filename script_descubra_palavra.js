@@ -6,6 +6,7 @@ let linhaAtual = numero_de_tentativas;
 let arrayPalavraUsuario = [];
 let proximaLetra = 0;
 let palavraGabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
+let arrayAcertosUsuario = [0,0,0,0,0];
 
 console.log(palavraGabarito);
 
@@ -75,16 +76,20 @@ function deletarLetra() {
 }
 
 function inserirLetra(teclaClicada) {
+  if(arrayPalavraUsuario[proximaLetra]!==undefined){
+    proximaLetra += 1;
+  }
   if (proximaLetra === 5) {
     return;
   }
   teclaClicada = teclaClicada.toLowerCase();
-  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
+  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];  
   let box = row.children[proximaLetra];
   animateCSS(box, "pulse");
   box.textContent = teclaClicada;
   box.classList.add("filled-box");
-  arrayPalavraUsuario.push(teclaClicada);
+  arrayPalavraUsuario[proximaLetra]=teclaClicada;
+  console.log(arrayPalavraUsuario);
   proximaLetra += 1;
 }
 
@@ -179,10 +184,8 @@ function validaPalavra(palavraUsuario) {
   if (!PALAVRAS.includes(palavraUsuario)) {
     document.getElementById("mensagemPalavrasValidas").style.display="flex";
     setTimeout(() => {
-      //console.log('antes: '+arrayPalavraUsuario);
       document.getElementById("mensagemPalavrasValidas").style.display="none";
       arrayPalavraUsuario=[];
-      //console.log('depois: '+arrayPalavraUsuario);
       proximaLetra=0;
       let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
       row.innerHTML = '';
@@ -224,6 +227,9 @@ function pintaLetrasVerde(arrayCores, arrayPalavraGabarito) {
     if (arrayPalavraGabarito[cont] == letra) {
       arrayCores[cont] = "green";
       arrayPalavraGabarito[cont] = "#";
+      arrayAcertosUsuario[cont] = '#';
+      console.log(arrayAcertosUsuario);
+      console.log(arrayAcertosUsuario.filter(Boolean).length);
     }
     cont++;
   }
@@ -278,6 +284,7 @@ function jogarNovamente(){
   arrayPalavraUsuario = [];
   proximaLetra = 0;
   palavraGabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
+  arrayAcertosUsuario=[];
   console.log(palavraGabarito);
   limpaAmbiente();
   criaAmbiente();
@@ -297,8 +304,42 @@ function continuarJogo(){
   mensagemTutorial.style.display = "none";
 }
 
+function darDica(){
+  let arrayIndices = [];
+  if(arrayAcertosUsuario.filter(Boolean).length<4){
+    carregaArrayIndicesDarDica(arrayIndices);
+    let indiceAleatorio = Math.floor(Math.random() * arrayIndices.length);
+    let indiceAleatorioArray = arrayIndices[indiceAleatorio];
+    let arrayPalavraGabarito = Array.from(palavraGabarito);
+    inserirDicaPosicao(arrayPalavraGabarito,indiceAleatorioArray);
+  }
+}
+
+function carregaArrayIndicesDarDica(arrayIndices){
+  let posicao = 0;
+  for (const letra of arrayAcertosUsuario){
+    if(letra != '#'){
+      arrayIndices.push(posicao);
+    }
+    posicao++;
+  }
+}
+
+function inserirDicaPosicao(arrayPalavraGabarito,indiceAleatorioArray){
+  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
+  let box = row.children[indiceAleatorioArray];
+  animateCSS(box, "pulse");
+  box.textContent = arrayPalavraGabarito[indiceAleatorioArray];
+  box.classList.add("filled-box");
+  box.style.backgroundColor = 'black';
+  box.style.color = 'white';
+  arrayAcertosUsuario[indiceAleatorioArray]='#';
+  arrayPalavraUsuario[indiceAleatorioArray]=arrayPalavraGabarito[indiceAleatorioArray];
+}
+
 inicializaJogo()
 window.criaAmbiente = criaAmbiente;
 window.jogarNovamente = jogarNovamente;
 window.abrirTutorial = abrirTutorial;
 window.continuarJogo = continuarJogo;
+window.darDica = darDica;
