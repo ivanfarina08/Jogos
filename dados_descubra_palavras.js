@@ -1718,5 +1718,6 @@ export const PALAVRAS = [
   "volei",
   "vento",
   "beira",
-  "buril"
+  "buril",
+  "vidro",
 ]
