@@ -1720,4 +1720,8 @@ export const PALAVRAS = [
   "beira",
   "buril",
   "vidro",
+  "limpa",
+  "casas",
+  "braco",
+  "praca",
 ]

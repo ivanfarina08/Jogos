@@ -39,7 +39,6 @@ export const PALAVRAS_VALIDAS = [
   "prece",
   "graca",
   "nasce",
-  "pouco",
   "muito",
   "ordem",
   "cegos",
@@ -55,5 +54,4 @@ export const PALAVRAS_VALIDAS = [
   "sonho",
   "poema",
   "licao",
-  "praca",
 ]

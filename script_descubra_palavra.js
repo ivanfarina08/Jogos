@@ -2,11 +2,15 @@ import { PALAVRAS } from "./dados_descubra_palavras.js";
 import { PALAVRAS_VALIDAS } from "./dados_descubra_palavras_validas.js";
 
 const numero_de_tentativas = 6;
+const numero_de_letras = 5;
+const quantMaxDicas = 2;
 let linhaAtual = numero_de_tentativas;
 let arrayPalavraUsuario = [];
-let proximaLetra = 0;
+let arrayIndicesPalavraUsuario = [];
+let arrayDicas = [];
+let quantDicas = 1;
 let palavraGabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
-let arrayAcertosUsuario = [0,0,0,0,0];
+let arrayAcertosUsuario = [];
 
 console.log(palavraGabarito);
 
@@ -15,8 +19,25 @@ function inicializaJogo() {
   document.getElementById('mensagemTutorial').style.display = "flex";  
 }
 
+function inicializaArrayIndices(){
+  arrayIndicesPalavraUsuario=[];
+  arrayAcertosUsuario=[];
+  for(let i=0;i<numero_de_letras;i++){
+    arrayIndicesPalavraUsuario.push(i);
+    arrayAcertosUsuario.push(0);
+  }
+}
+
+function inicializaarrayIndicesPalavraUsuario(){
+  arrayIndicesPalavraUsuario=[];
+  for(let i=0;i<numero_de_letras;i++){
+    arrayIndicesPalavraUsuario.push(i);
+  }
+}
+
 export function criaAmbiente(){
   document.getElementById('mensagemTutorial').style.display = "none"; 
+  inicializaArrayIndices();
    
   let board = document.getElementById("game-board");
 
@@ -67,30 +88,49 @@ function corLetraTeclado(letter, color) {
 }
 
 function deletarLetra() {
-  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
-  let box = row.children[proximaLetra - 1];
-  box.textContent = "";
-  box.classList.remove("filled-box");
-  arrayPalavraUsuario.pop();
-  proximaLetra -= 1;
+  let posicaoAtual = arrayIndicesPalavraUsuario[0]-1;
+  if(isNaN(posicaoAtual)){
+    posicaoAtual=4;
+  }
+  while(arrayDicas.find(a => a.chave === posicaoAtual)){
+    posicaoAtual--;
+  }
+  if(posicaoAtual>=0){    
+    deletaLetraHtml(posicaoAtual);
+    arrayPalavraUsuario[posicaoAtual]=null;
+    arrayIndicesPalavraUsuario.splice(0, 0, posicaoAtual);
+  }
 }
 
-function inserirLetra(teclaClicada) {
-  if(arrayPalavraUsuario[proximaLetra]!==undefined){
-    proximaLetra += 1;
-  }
-  if (proximaLetra === 5) {
-    return;
-  }
-  teclaClicada = teclaClicada.toLowerCase();
+function deletaLetraHtml(posicaoAtual){
+  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
+  let box = row.children[posicaoAtual];
+  box.textContent = "";
+  box.classList.remove("filled-box");
+}
+
+function inserirLetraComum(teclaClicada) {
+  if(arrayIndicesPalavraUsuario.length>0){
+    let posicaoExcluir=0;
+    let posicaoLetra = arrayIndicesPalavraUsuario[posicaoExcluir];  
+    teclaClicada = teclaClicada.toLowerCase();  
+    inserirArrayPalavraUsuario(posicaoLetra, teclaClicada, posicaoExcluir);
+    inserirLetraHtml(posicaoLetra, teclaClicada);
+  }  
+}
+
+function inserirLetraHtml(posicaoLinha, letra){
   let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];  
-  let box = row.children[proximaLetra];
+  let box = row.children[posicaoLinha];
   animateCSS(box, "pulse");
-  box.textContent = teclaClicada;
+  box.textContent = letra;
   box.classList.add("filled-box");
-  arrayPalavraUsuario[proximaLetra]=teclaClicada;
-  console.log(arrayPalavraUsuario);
-  proximaLetra += 1;
+  return box;
+}
+
+function inserirArrayPalavraUsuario(posicao, letra, indiceParaExcluir){
+  arrayPalavraUsuario[posicao]=letra;
+  arrayIndicesPalavraUsuario.splice(indiceParaExcluir, 1);
 }
 
 const animateCSS = (element, animation, prefix = "animate__") =>
@@ -118,7 +158,7 @@ document.addEventListener("keyup", (e) => {
   }
 
   let teclaClicada = String(e.key);
-  if (teclaClicada === "Backspace" && proximaLetra !== 0) {
+  if (teclaClicada === "Backspace") {
     deletarLetra();
     return;
   }
@@ -132,7 +172,7 @@ document.addEventListener("keyup", (e) => {
   if (!found || found.length > 1) {
     return;
   } else {
-    inserirLetra(teclaClicada);
+    inserirLetraComum(teclaClicada);
   }
 });
 
@@ -155,6 +195,8 @@ function checarPalavra() {
   let linha = document.getElementsByClassName("letter-row")[6 - linhaAtual];
   let palavraUsuario = "";
   let arrayPalavraGabarito = Array.from(palavraGabarito);
+
+  console.log('arrayPalavraUsuario: '+arrayPalavraUsuario);
 
   palavraUsuario = juntaArrayPalavraUsuario(palavraUsuario);
   let palavraValida = validaPalavra(palavraUsuario);
@@ -186,13 +228,18 @@ function validaPalavra(palavraUsuario) {
     setTimeout(() => {
       document.getElementById("mensagemPalavrasValidas").style.display="none";
       arrayPalavraUsuario=[];
-      proximaLetra=0;
+      inicializaarrayIndicesPalavraUsuario();
       let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
       row.innerHTML = '';
       for (let j = 0; j < 5; j++) {
         let box = document.createElement("div");
         box.className = "letter-box";
         row.appendChild(box);
+      }
+      if(arrayDicas.length>0){
+        for(const dica of arrayDicas){
+          inserirDicaPosicao(dica.valor,dica.chave);         
+        }
       }
     }, 2000);
     return false;
@@ -226,10 +273,7 @@ function pintaLetrasVerde(arrayCores, arrayPalavraGabarito) {
   for (const letra of arrayPalavraUsuario) {
     if (arrayPalavraGabarito[cont] == letra) {
       arrayCores[cont] = "green";
-      arrayPalavraGabarito[cont] = "#";
       arrayAcertosUsuario[cont] = '#';
-      console.log(arrayAcertosUsuario);
-      console.log(arrayAcertosUsuario.filter(Boolean).length);
     }
     cont++;
   }
@@ -266,7 +310,8 @@ function campeao(){
 function errouPalavra(){
   linhaAtual -= 1;
   arrayPalavraUsuario = [];
-  proximaLetra = 0;
+  arrayDicas=[];
+  inicializaarrayIndicesPalavraUsuario();
   perdeuJogo();  
 }
 
@@ -282,12 +327,13 @@ function jogarNovamente(){
   document.getElementById("mensagemPerdeu").style.display="none";
   linhaAtual = numero_de_tentativas;
   arrayPalavraUsuario = [];
-  proximaLetra = 0;
+  inicializaArrayIndices();
   palavraGabarito = PALAVRAS_VALIDAS[Math.floor(Math.random() * PALAVRAS_VALIDAS.length)];
   arrayAcertosUsuario=[];
-  console.log(palavraGabarito);
   limpaAmbiente();
   criaAmbiente();
+  arrayDicas=[];
+  quantDicas=1;
 }
 
 function abrirTutorial(){
@@ -306,35 +352,39 @@ function continuarJogo(){
 
 function darDica(){
   let arrayIndices = [];
-  if(arrayAcertosUsuario.filter(Boolean).length<4){
+  if(arrayAcertosUsuario.filter(Boolean).length<4 && quantDicas<=quantMaxDicas){
     carregaArrayIndicesDarDica(arrayIndices);
     let indiceAleatorio = Math.floor(Math.random() * arrayIndices.length);
     let indiceAleatorioArray = arrayIndices[indiceAleatorio];
     let arrayPalavraGabarito = Array.from(palavraGabarito);
-    inserirDicaPosicao(arrayPalavraGabarito,indiceAleatorioArray);
+    let letra = arrayPalavraGabarito[indiceAleatorioArray];
+    inserirDicaPosicao(letra,indiceAleatorioArray);
+    setArrayDicas(indiceAleatorioArray,letra);
+    quantDicas++;
+    console.log(quantDicas);
   }
 }
 
 function carregaArrayIndicesDarDica(arrayIndices){
   let posicao = 0;
   for (const letra of arrayAcertosUsuario){
-    if(letra != '#'){
+    if(letra === 0){
       arrayIndices.push(posicao);
     }
     posicao++;
   }
 }
 
-function inserirDicaPosicao(arrayPalavraGabarito,indiceAleatorioArray){
-  let row = document.getElementsByClassName("letter-row")[6 - linhaAtual];
-  let box = row.children[indiceAleatorioArray];
-  animateCSS(box, "pulse");
-  box.textContent = arrayPalavraGabarito[indiceAleatorioArray];
-  box.classList.add("filled-box");
+function inserirDicaPosicao(letra,indiceAleatorioArray){
+  let box = inserirLetraHtml(indiceAleatorioArray,letra);
+  inserirArrayPalavraUsuario(indiceAleatorioArray,letra,arrayIndicesPalavraUsuario.indexOf(indiceAleatorioArray));
   box.style.backgroundColor = 'black';
   box.style.color = 'white';
-  arrayAcertosUsuario[indiceAleatorioArray]='#';
-  arrayPalavraUsuario[indiceAleatorioArray]=arrayPalavraGabarito[indiceAleatorioArray];
+  arrayAcertosUsuario[indiceAleatorioArray]='#'; 
+}
+
+function setArrayDicas(posicao,letra){
+  arrayDicas.push({'chave':posicao,'valor':letra});
 }
 
 inicializaJogo()
