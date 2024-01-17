@@ -136,6 +136,7 @@ button {
 
 
 .letter.right {
+  color: #000000;
   background-color: rgb(85, 189, 85);
   border: none;
 }
@@ -152,12 +153,13 @@ p .letter {
 .letter.place {
   background-color: rgb(187, 187, 81);
   border: none;
+  color: #000000;
 }
 
 .letter.wrong {
   background-color: pink;
   border: none;
-  color: bl;
+  color: #000000;
 }
 
 p {
