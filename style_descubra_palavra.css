@@ -118,7 +118,7 @@ button {
 
 .letter {
   align-items: center;
-  border: .125em solid #4c4347;
+  border: .125em solid #000000;
   border-radius: 10%;
   box-sizing: border-box;
   color: #fafaff;
@@ -154,7 +154,7 @@ p .letter {
 .letter.wrong {
   background-color: #191516;
   border: none;
-  color: #5e5c5c;
+  color: gray;
 }
 
 p {
@@ -173,6 +173,7 @@ p {
   padding: 5px;
   overflow:auto;
   height: auto;
+  background-color: rgb(58, 50, 50);
 }
 
 .transparent{
