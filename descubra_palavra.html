@@ -70,44 +70,106 @@
         </div>
     </div>
 
-    <div class="text-center estilo_jogo_parado" id="mensagemTutorial" style="padding: 5px;">
+    <div class="text-center estilo_jogo_parado" id="mensagemTutorial">
 
-        <p tabindex="0">Descubra a palavra certa em 6 tentativas. Depois de cada tentativa, as peças mostram o quão
-            perto você está da solução.</p>
+        <p tabindex="0">
+            O objetivo deste jogo é encontrar a palavra sorteada aleatóriamente pelo sistema. <br>
+            A palavra possui 5 letras e não necessariamente está ligada a assuntos evangelicos. <br>
+            Para isso, você terá 6 tentativas, conforme exemplo abaixo:
+        </p>
+
+        <div class="tabelaTentativas">
+            <div class="example">
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="1º" class="letter" style="border: none;">1º</span>
+            </div>
+            <div class="example">
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="1º" class="letter" style="border: none;">2º</span>
+            </div>
+            <div class="example">
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="1º" class="letter" style="border: none;">3º</span>
+            </div>
+            <div class="example">
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="1º" class="letter" style="border: none;">4º</span>
+            </div>
+            <div class="example">
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="1º" class="letter" style="border: none;">5º</span>
+            </div>
+            <div class="example">
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="" class="letter">&nbsp;</span>
+                <span tabindex="0" role="text" aria-label="1º" class="letter" style="border: none;">6º</span>
+            </div>
+        </div>
+
+        <p tabindex="0">
+            Após cada tentativa, as letras terão uma coloração específica para te ajudar a identificar a palavra correta. <br>
+            Por exemplo:
+        </p>
+
         <div class="example">
-            <span tabindex="0" role="text" aria-label="letra T correta" class="letter right">J</span>
-            <span tabindex="0" role="text" aria-label="letra U" class="letter">E</span>
-            <span tabindex="0" role="text" aria-label="letra R" class="letter">S</span>
-            <span tabindex="0" role="text" aria-label="letra M" class="letter">U</span>
-            <span tabindex="0" role="text" aria-label="letra A" class="letter">S</span>
+            <span tabindex="0" role="text" aria-label="letra J correta" class="letter right">J</span>
+            <span tabindex="0" role="text" aria-label="letra E" class="letter">E</span>
+            <span tabindex="0" role="text" aria-label="letra S" class="letter">S</span>
+            <span tabindex="0" role="text" aria-label="letra U" class="letter">U</span>
+            <span tabindex="0" role="text" aria-label="letra S" class="letter">S</span>
         </div>
 
         <p tabindex="0">A letra <span class="letter right">J</span> faz parte da palavra e está na
             posição correta.</p>
 
         <div class="example">
-            <span tabindex="0" role="text" aria-label="letra V" class="letter">M</span>
-            <span tabindex="0" role="text" aria-label="letra I" class="letter">A</span>
-            <span tabindex="0" role="text" aria-label="letra O em outro local" class="letter place">R</span>
-            <span tabindex="0" role="text" aria-label="letra L" class="letter">I</span>
+            <span tabindex="0" role="text" aria-label="letra M" class="letter">M</span>
+            <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
+            <span tabindex="0" role="text" aria-label="letra R em outro local" class="letter place">R</span>
+            <span tabindex="0" role="text" aria-label="letra I" class="letter">I</span>
             <span tabindex="0" role="text" aria-label="letra A" class="letter">A</span>
         </div>
 
         <p tabindex="0">A letra <span class="letter place">R</span> faz parte da palavra mas em outra posição.</p>
 
         <div class="example">
-            <span tabindex="0" role="text" aria-label="letra P" class="letter">L</span>
-            <span tabindex="0" role="text" aria-label="letra U" class="letter">I</span>
-            <span tabindex="0" role="text" aria-label="letra L" class="letter">V</span>
-            <span tabindex="0" role="text" aria-label="letra G errada" class="letter wrong">R</span>
-            <span tabindex="0" role="text" aria-label="letra A" class="letter">O</span>
+            <span tabindex="0" role="text" aria-label="letra L" class="letter">L</span>
+            <span tabindex="0" role="text" aria-label="letra I" class="letter">I</span>
+            <span tabindex="0" role="text" aria-label="letra V" class="letter">V</span>
+            <span tabindex="0" role="text" aria-label="letra R errada" class="letter wrong">R</span>
+            <span tabindex="0" role="text" aria-label="letra O" class="letter">O</span>
         </div>
 
         <p tabindex="0">A letra <span class="letter wrong">R</span> não faz parte da palavra.</p>
 
-        <p tabindex="0">As palavras não possuem acento.</p>
+        <p tabindex="0"><br><b>Observações:</b></p>
 
-        <p tabindex="0">As palavras podem possuir letras repetidas.</p>
+        <p tabindex="0">- As palavras não possuem acento.</p>
+
+        <p tabindex="0">- As palavras podem possuir letras repetidas.</p>
         <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="criaAmbiente()">Iniciar
             Jogo</button>
 

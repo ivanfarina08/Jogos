@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+body{
+  overflow: auto;
+}
 
 h1 {
   text-align: center;
@@ -125,8 +128,9 @@ button {
   justify-content: center;
   margin: 0 .05em;
   width: 2em;
-  font-size: 4em;
+  font-size: 3em; /* Ajuste o tamanho da fonte conforme necessário */
 }
+
 
 .letter.right {
   background-color: rgb(85, 189, 85);
@@ -166,6 +170,9 @@ p {
 
 #mensagemTutorial{
   box-sizing: border-box;
+  padding: 5px;
+  overflow:auto;
+  height: auto;
 }
 
 .transparent{
