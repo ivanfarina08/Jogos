@@ -37,8 +37,6 @@ h1 {
   text-align: center;
 }
 
-
-
 .letter-box {
   border: 2px solid gray;
   border-radius: 3px;
@@ -118,7 +116,7 @@ button {
 
 .letter {
   align-items: center;
-  border: .125em solid #000000;
+  border: .125em solid #fafaff62;
   border-radius: 10%;
   box-sizing: border-box;
   color: #fafaff;
