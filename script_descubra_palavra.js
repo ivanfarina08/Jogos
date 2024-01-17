@@ -248,7 +248,7 @@ function validaPalavra(palavraUsuario) {
 }
 
 function pintaLetras(arrayPalavraGabarito,linha,palavraUsuario){
-  let arrayCores = ["gray", "gray", "gray", "gray", "gray"];
+  let arrayCores = ["pink", "pink", "pink", "pink", "pink"];
   arrayCores = pintaLetrasAmarelo(arrayCores, arrayPalavraGabarito);
   pintaLetrasVerde(arrayCores, arrayPalavraGabarito);
   animarResultadoLetra(linha, palavraUsuario, arrayCores);
