@@ -2,8 +2,13 @@
   margin: 0;
   padding: 0;
 }
+
 body{
   overflow: auto;
+}
+
+.botao_jogo_parado{
+  --color: #def700;
 }
 
 h1 {
@@ -152,7 +157,7 @@ p .letter {
 .letter.wrong {
   background-color: pink;
   border: none;
-  color: black;
+  color: bl;
 }
 
 p {
