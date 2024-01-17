@@ -272,7 +272,7 @@ function pintaLetrasVerde(arrayCores, arrayPalavraGabarito) {
   let cont = 0;
   for (const letra of arrayPalavraUsuario) {
     if (arrayPalavraGabarito[cont] == letra) {
-      arrayCores[cont] = "green";
+      arrayCores[cont] = "rgb(85, 189, 85)";
       arrayAcertosUsuario[cont] = '#';
     }
     cont++;
