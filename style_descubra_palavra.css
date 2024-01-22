@@ -9,6 +9,7 @@ body{
 
 .botao_jogo_parado{
   --color: #def700;
+  width: 25%;
 }
 
 h1 {
@@ -167,10 +168,6 @@ p {
   text-align: center;
   margin: 10px;
   font-size: 1.4em;
-}
-
-.botao_jogo_parado{
-  width: 25%;
 }
 
 #mensagemTutorial{
