@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Jogo da Memória</title>
+    <link rel="icon" type="image/x-icon" href="/img/jogo_memoria.png">
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(6, 50px);
+            /* Definindo 6 colunas de 50px cada */
+            grid-template-rows: repeat(6, 50px);
+            /* Definindo 6 linhas de 50px cada */
+            gap: 2px;
+            /* Espaço entre as células */
+            border: 2px solid black;
+            /* Borda para visualização */
+            margin-bottom: 20px;
+        }
+
+        .cell {
+            background-color: lightgray;
+            /* Cor de fundo das células */
+            border: 1px solid black;
+            /* Borda para visualização */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            /* Cursor de ponteiro para indicar que as células são clicáveis */
+            user-select: none;
+            /* Impede a seleção de texto ao arrastar */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Candy Crush-like Grid</h2>
+
+    <div class="grid" id="grid">
+        <!-- Criando 36 células -->
+        <div class="cell" onclick="selectCell(this)">1</div>
+        <div class="cell" onclick="selectCell(this)">2</div>
+        <div class="cell" onclick="selectCell(this)">3</div>
+        <div class="cell" onclick="selectCell(this)">4</div>
+        <div class="cell" onclick="selectCell(this)">5</div>
+        <div class="cell" onclick="selectCell(this)">6</div>
+
+        <div class="cell" onclick="selectCell(this)">7</div>
+        <div class="cell" onclick="selectCell(this)">8</div>
+        <div class="cell" onclick="selectCell(this)">9</div>
+        <div class="cell" onclick="selectCell(this)">10</div>
+        <div class="cell" onclick="selectCell(this)">11</div>
+        <div class="cell" onclick="selectCell(this)">12</div>
+
+        <div class="cell" onclick="selectCell(this)">13</div>
+        <div class="cell" onclick="selectCell(this)">14</div>
+        <div class="cell" onclick="selectCell(this)">15</div>
+        <div class="cell" onclick="selectCell(this)">16</div>
+        <div class="cell" onclick="selectCell(this)">17</div>
+        <div class="cell" onclick="selectCell(this)">18</div>
+
+        <div class="cell" onclick="selectCell(this)">19</div>
+        <div class="cell" onclick="selectCell(this)">20</div>
+        <div class="cell" onclick="selectCell(this)">21</div>
+        <div class="cell" onclick="selectCell(this)">22</div>
+        <div class="cell" onclick="selectCell(this)">23</div>
+        <div class="cell" onclick="selectCell(this)">24</div>
+
+        <div class="cell" onclick="selectCell(this)">25</div>
+        <div class="cell" onclick="selectCell(this)">26</div>
+        <div class="cell" onclick="selectCell(this)">27</div>
+        <div class="cell" onclick="selectCell(this)">28</div>
+        <div class="cell" onclick="selectCell(this)">29</div>
+        <div class="cell" onclick="selectCell(this)">30</div>
+
+        <div class="cell" onclick="selectCell(this)">31</div>
+        <div class="cell" onclick="selectCell(this)">32</div>
+        <div class="cell" onclick="selectCell(this)">33</div>
+        <div class="cell" onclick="selectCell(this)">34</div>
+        <div class="cell" onclick="selectCell(this)">35</div>
+        <div class="cell" onclick="selectCell(this)">36</div>
+    </div>
+
+    <script>
+        let selectedCell = null;
+
+        function selectCell(cell) {
+            if (!selectedCell) {
+                selectedCell = cell;
+                cell.style.backgroundColor = 'lightblue'; // Destaque da célula selecionada
+            } else {
+                // Verificando se as células selecionadas são vizinhas na mesma linha ou coluna
+                const selectedCellIndex = Array.from(document.querySelectorAll('.cell')).indexOf(selectedCell);
+                const currentCellIndex = Array.from(document.querySelectorAll('.cell')).indexOf(cell);
+                const selectedRowIndex = Math.floor(selectedCellIndex / 6);
+                const currentRowIndex = Math.floor(currentCellIndex / 6);
+                const selectedColIndex = selectedCellIndex % 6;
+                const currentColIndex = currentCellIndex % 6;
+                if ((selectedRowIndex === currentRowIndex && Math.abs(selectedColIndex - currentColIndex) === 1) ||
+                    (selectedColIndex === currentColIndex && Math.abs(selectedRowIndex - currentRowIndex) === 1)) {
+                    // Se as células forem vizinhas, troque seus conteúdos
+                    const temp = cell.innerHTML;
+                    cell.innerHTML = selectedCell.innerHTML;
+                    selectedCell.innerHTML = temp;
+                }
+                selectedCell.style.backgroundColor = ''; // Remova o destaque da célula anteriormente selecionada
+                selectedCell = null;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
