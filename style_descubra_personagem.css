@@ -1,3 +1,40 @@
-#tutorial{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#tutorial {
     display: flex;
+    z-index: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+    padding: 10px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row div {
+    line-height: 50px;
+    padding: 10px;
+}
+
+.dicas-flex {
+    justify-content: space-between;
+}
+
+#GameOver {
+    display: none;
+    z-index: 1;
+}
+
+.borda {
+    border: solid;
 }
