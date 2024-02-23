@@ -1,23 +1,4 @@
-const dados = [
-    {
-        "id": 1,
-        "personagem": "Jesus",
-        "dica1": "Nasceu em Belém",
-        "dica2": "Tiago e João eram seus apóstolos",
-        "dica3": "Transformou água em vinho",
-        "dica4": "Curou cegos e leprosos",
-        "dica5": "Deu exemplo de vida"
-    },
-    {
-        "id": 2,
-        "personagem": "Chico Xavier",
-        "dica1": "Nasceu em Pedro Leopoldo (Minas Gerais)",
-        "dica2": "Psicografou 450 livros",
-        "dica3": "Foi considerado 'O maior brasileiro de todos os tempos'",
-        "dica4": "Seu mentor espiritual era Emmanuel",
-        "dica5": "Psicografou a série 'Nosso lar' pelo espírito André Luiz"
-    }
-]
+import { dados } from "./dados_descubra_personagem.js";
 
 let personagem;
 let dica = 0;
@@ -32,10 +13,6 @@ const maxTentativas = 3;
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-}
-
-function habilitaBtJogar() {
-    document.getElementById("bt_jogar").disabled = false;
 }
 
 function iniciarJogo() {
@@ -205,3 +182,12 @@ function diminuirDeposito() {
         document.getElementById("valorDeposito").innerHTML = deposito;
     }
 }
+
+window.aumentarDeposito = aumentarDeposito;
+window.diminuirDeposito = diminuirDeposito;
+window.iniciarJogo = iniciarJogo;
+window.novaDica = novaDica;
+window.bt_dicaAnterior = bt_dicaAnterior;
+window.bt_dicaProxima = bt_dicaProxima;
+window.verificaResposta = verificaResposta;
+window.reiniciarJogo = reiniciarJogo;
