@@ -1,11 +1,13 @@
 import { dados } from "./dados_talentos.js";
 
 let personagem;
+let indicePersonagemAtual = 0;
 let dica = 0;
 let quantTalentos = 10;
 let deposito = 0;
 let tentativas = 0;
 let ordem_dicas = [];
+let ordem_personagens = [];
 let verDica = 0;
 const quantDicas = 5;
 const maxTentativas = 3;
@@ -17,16 +19,12 @@ function getRandomInt(max) {
 
 function iniciarJogo() {
     if (deposito > 0) {
-        ramdomizaDicas();
         document.getElementById("tutorial").style.display = "none";
+        ramdomizaDicas();
         atualizarQuantTalentosHTML();
-        let quantPersonagens = dados.length;
-        let idPersonagemAleatorio = getRandomInt(quantPersonagens) + 1;
-        personagem = carregaPersonagemAtual(idPersonagemAleatorio);
-        console.log(personagem);
+        carregaPersonagem();
         dicaHTML();
         deposito = document.getElementById("valorDeposito").innerHTML;
-        console.log(deposito);
     }
 }
 
@@ -43,7 +41,34 @@ function ramdomizaDicas() {
         ordem_dicas[i] = indicesDicas[posicaoAleatoria];
         indicesDicas.splice(posicaoAleatoria, 1);
     }
-    console.log("ordem_dicas: " + ordem_dicas);
+}
+
+function carregaPersonagem() {
+    let quantPersonagens = dados.length;
+    if(indicePersonagemAtual == quantPersonagens || indicePersonagemAtual == 0){
+        indicePersonagemAtual = 0;
+        randomizaPersonagens(quantPersonagens);
+    }
+    personagem = carregaPersonagemAtual(ordem_personagens[indicePersonagemAtual]);
+    console.log(personagem);
+    indicePersonagemAtual++;
+}
+
+function randomizaPersonagens(quantPersonagens){
+    let indicesPersonagens = [];
+    let posicaoAleatoria;
+
+    for (let i = 0; i < quantPersonagens; i++) {
+        indicesPersonagens[i] = i + 1;
+    }
+
+    for (let i = 0; i < quantPersonagens; i++) {
+        posicaoAleatoria = getRandomInt(indicesPersonagens.length);
+        console.log("posicaoAleatoria: "+posicaoAleatoria);
+        ordem_personagens[i] = indicesPersonagens[posicaoAleatoria];
+        indicesPersonagens.splice(posicaoAleatoria, 1);
+    }
+    console.log("ordem_personagens: "+ordem_personagens);
 }
 
 function verificaResposta() {
@@ -82,7 +107,7 @@ function limpaTela() {
     verDica = 0;
     document.getElementById("bt_novaDica").disabled = false;
     document.getElementById("valorDeposito").innerHTML = 0;
-    deposito=0;
+    deposito = 0;
     if (quantTalentos <= 0) {
         document.getElementById("GameOver").style.display = "flex";
     }
@@ -139,8 +164,6 @@ function atualizarQuantTalentosHTML() {
 
 function carregaPersonagemAtual(id) {
     const dadosDoId = dados.find(item => item.id === id);
-
-    // Verificar se o objeto foi encontrado
     if (dadosDoId) {
         return (dadosDoId);
     } else {
