@@ -48,7 +48,7 @@ function iniciarJogo() {
         personagem = carregaPersonagemAtual(idPersonagemAleatorio);
         console.log(personagem);
         dicaHTML();
-        deposito = document.getElementById("deposito").value;
+        deposito = document.getElementById("valorDeposito").innerHTML;
         console.log(deposito);
     }
 }
@@ -104,7 +104,8 @@ function limpaTela() {
     tentativas = 0;
     verDica = 0;
     document.getElementById("bt_novaDica").disabled = false;
-    document.getElementById("deposito").max = quantTalentos;
+    document.getElementById("valorDeposito").innerHTML = 0;
+    deposito=0;
     if (quantTalentos <= 0) {
         document.getElementById("GameOver").style.display = "flex";
     }
@@ -192,7 +193,6 @@ function bt_dicaProxima() {
 }
 
 function aumentarDeposito() {
-    document.getElementById("valorDeposito").innerHTML = 10;
     if (deposito < quantTalentos) {
         deposito++;
         document.getElementById("valorDeposito").innerHTML = deposito;
