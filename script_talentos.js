@@ -45,7 +45,7 @@ function ramdomizaDicas() {
 
 function carregaPersonagem() {
     let quantPersonagens = dados.length;
-    if(indicePersonagemAtual == quantPersonagens || indicePersonagemAtual == 0){
+    if (indicePersonagemAtual == quantPersonagens || indicePersonagemAtual == 0) {
         indicePersonagemAtual = 0;
         randomizaPersonagens(quantPersonagens);
     }
@@ -54,7 +54,7 @@ function carregaPersonagem() {
     indicePersonagemAtual++;
 }
 
-function randomizaPersonagens(quantPersonagens){
+function randomizaPersonagens(quantPersonagens) {
     let indicesPersonagens = [];
     let posicaoAleatoria;
 
@@ -64,11 +64,11 @@ function randomizaPersonagens(quantPersonagens){
 
     for (let i = 0; i < quantPersonagens; i++) {
         posicaoAleatoria = getRandomInt(indicesPersonagens.length);
-        console.log("posicaoAleatoria: "+posicaoAleatoria);
+        console.log("posicaoAleatoria: " + posicaoAleatoria);
         ordem_personagens[i] = indicesPersonagens[posicaoAleatoria];
         indicesPersonagens.splice(posicaoAleatoria, 1);
     }
-    console.log("ordem_personagens: "+ordem_personagens);
+    console.log("ordem_personagens: " + ordem_personagens);
 }
 
 function verificaResposta() {
@@ -114,18 +114,16 @@ function limpaTela() {
 }
 
 function novaDica() {
-    dica++;
-    verDica = dica;
-    dicaHTML();
+    if (dica < 4) {
+        dica++;
+        verDica = dica;
+        dicaHTML();
 
-    if (dica > 1) {
-        quantTalentos--;
-        atualizarQuantTalentosHTML();
-        if (dica == 4) {
-            document.getElementById("bt_novaDica").disabled = true;
+        if (dica > 1) {
+            quantTalentos--;
+            atualizarQuantTalentosHTML();
         }
     }
-
 }
 
 function dicaHTML() {
@@ -152,6 +150,7 @@ function dicaHTML() {
             break;
 
         default:
+            console.log("não existem mais dicas");
             break;
     }
 }
