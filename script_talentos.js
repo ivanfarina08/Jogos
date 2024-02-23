@@ -1,4 +1,4 @@
-import { dados } from "./dados_descubra_personagem.js";
+import { dados } from "./dados_talentos.js";
 
 let personagem;
 let dica = 0;
