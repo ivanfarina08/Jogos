@@ -73,14 +73,17 @@
     </div>
 
     <div>
-        <div class="flex-row space-between-flex espacamento-tela2">
+        <div class="flex-row space-between-flex espacamento-tela2 cabecalho">
             <h2 class="" id="valorDeposito">Deposito: 0</h2>
             <h2 class="" id="numeroDica">Dica: 0/5</h2>
         </div>
         <hr>
 
-        <div class="text-center espacamento-tela2" onclick="novaDica()" id="bt_novaDica">
+        <div class="text-center espacamento-tela2 dica" onclick="novaDica()" id="bt_novaDica">
             Pedir dica
+            <span class="material-symbols-outlined ideia">
+                lightbulb
+            </span>
         </div>
 
         <div class="flex-row space-between-flex espacamento-tela2 tamanho-tela-dica">
@@ -123,19 +126,19 @@
 
     </div>
 
-    <div class="text-center estilo_jogo_parado" id="Ganhou">
+    <div class="text-center estilo_jogo_parado Ganhou" id="Ganhou">
         <h1>Acertouuuu!!!</h1>
         <h2>Resposta: </h2>
         <h2 class="respostaPersonagem"></h2>
     </div>
 
-    <div class="text-center estilo_jogo_parado" id="Errou">
+    <div class="text-center estilo_jogo_parado Errou" id="Errou">
         <h1>Errou!!!</h1>
         <h2>Resposta: </h2>
         <h2 class="respostaPersonagem"></h2>
     </div>
 
-    <div class="text-center estilo_jogo_parado" id="Tentativa">
+    <div class="text-center estilo_jogo_parado Errou" id="Tentativa">
         <h1>Errou!!!</h1>
         <h2 id="numeroTentativas"></h2>
     </div>

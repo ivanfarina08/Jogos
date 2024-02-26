@@ -242,7 +242,7 @@ function removeSelecaoDepositoHTML() {
 function respostaPersonagemHTML() {
     let count = document.getElementsByClassName("respostaPersonagem").length;
     for (let i = 0; i < count; i++) {
-        document.getElementsByClassName("respostaPersonagem")[i].innerHTML = personagem.personagem;
+        document.getElementsByClassName("respostaPersonagem")[i].innerHTML = personagem.personagem.toUpperCase();
     }
 }
 

@@ -10,7 +10,7 @@ export const dados = [
   },
   {
     "id": 2,
-    "personagem": "Chico Xavier",
+    "personagem": "Francisco Cândido Xavier",
     "dica1": "Nasceu em Pedro Leopoldo (Minas Gerais)",
     "dica2": "Psicografou 450 livros",
     "dica3": "Foi considerado 'O maior brasileiro de todos os tempos'",

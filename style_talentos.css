@@ -90,7 +90,7 @@ hr {
 }
 
 .tamanho-tela-dica {
-    height: 200px;
+    height: 60vh;
 }
 
 .entrada-usuario {
@@ -122,7 +122,7 @@ hr {
 }
 
 #dica {
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 .espaco-cima {
@@ -170,4 +170,32 @@ hr {
     padding: 0 22px;
     font-size: 1.2em;
     line-height: 40px;
+}
+
+.estilo_jogo_parado {
+    background-color: rgb(3, 0, 0);
+}
+
+.Ganhou {
+    background-color: rgb(13, 218, 122);
+}
+
+.Errou {
+    background-color: rgb(240, 109, 109);
+}
+
+#bt_novaDica{
+    padding: 15px;
+}
+
+.cabecalho{
+    padding: 15px;
+}
+
+.ideia{
+    padding: 0;
+}
+
+.dica{
+    background-color: rgb(212, 174, 247);
 }
