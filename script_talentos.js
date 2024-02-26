@@ -9,7 +9,7 @@ let tentativas = 0;
 let ordem_dicas = [];
 let ordem_personagens = [];
 let verDica = 0;
-const quantDicas = 5;
+const maxDicas = 5;
 const maxTentativas = 3;
 
 
@@ -19,12 +19,12 @@ function getRandomInt(max) {
 
 function iniciarJogo() {
     if (deposito > 0) {
-        document.getElementById("tutorial").style.display = "none";
+        document.getElementById("introducaoJogo").style.display = "none";
         ramdomizaDicas();
         atualizarQuantTalentosHTML();
         carregaPersonagem();
         dicaHTML();
-        deposito = document.getElementById("valorDeposito").innerHTML;
+        document.getElementById("valorDeposito").innerHTML = "Deposito:" + deposito;
     }
 }
 
@@ -32,11 +32,11 @@ function ramdomizaDicas() {
     let indicesDicas = [];
     let posicaoAleatoria;
 
-    for (let i = 0; i < quantDicas; i++) {
+    for (let i = 0; i < maxDicas; i++) {
         indicesDicas[i] = i + 1;
     }
 
-    for (let i = 0; i < quantDicas; i++) {
+    for (let i = 0; i < maxDicas; i++) {
         posicaoAleatoria = getRandomInt(indicesDicas.length - 1);
         ordem_dicas[i] = indicesDicas[posicaoAleatoria];
         indicesDicas.splice(posicaoAleatoria, 1);
@@ -84,24 +84,39 @@ function verificaResposta() {
 
 function acertou() {
     quantTalentos += parseInt(deposito) * 2;
-    alert(quantTalentos);
-    alert("Acertou");
-    limpaTela();
+    document.getElementById("Ganhou").style.display = "flex";
+    respostaPersonagemHTML();
+    setTimeout(function () {
+        limpaTela();
+    }, 3000);
 }
 
 function errou() {
     if (tentativas == maxTentativas) {
-        quantTalentos -= parseInt(deposito);
-        limpaTela();
+        document.getElementById("Errou").style.display = "flex";
+        respostaPersonagemHTML();
+        setTimeout(function () {
+            limpaTela();
+        }, 3000);
     }
-    alert("Numero de tentativas: " + tentativas);
+    else {
+        document.getElementById("Tentativa").style.display = "flex";
+        document.getElementById("numeroTentativas").innerHTML = "Você tem mais " + (maxTentativas - tentativas) + " tentativas";
+        setTimeout(function () {
+            document.getElementById("Tentativa").style.display = "none";
+        }, 3000);
+    }
 }
+
+
 
 function limpaTela() {
     document.getElementById("dica").innerHTML = "";
     document.getElementById("resposta").value = "";
     atualizarQuantTalentosHTML();
-    document.getElementById("tutorial").style.display = "flex";
+    document.getElementById("introducaoJogo").style.display = "flex";
+    document.getElementById("Ganhou").style.display = "none";
+    document.getElementById("Errou").style.display = "none";
     dica = 0;
     tentativas = 0;
     verDica = 0;
@@ -111,19 +126,39 @@ function limpaTela() {
     if (quantTalentos <= 0) {
         document.getElementById("GameOver").style.display = "flex";
     }
+    removeSelecaoDepositoHTML();
 }
 
 function novaDica() {
     if (dica < 4) {
         dica++;
-        verDica = dica;
-        dicaHTML();
+        if (dica == 2) {
+            document.getElementById("DicaPerdeTalento").style.display = "flex";
+        }
 
-        if (dica > 1) {
+        if (dica > 2) {
             quantTalentos--;
             atualizarQuantTalentosHTML();
         }
+        verDica = dica;
+        dicaHTML();
     }
+}
+
+function pagarDica(valor) {
+    let pagarPorDica = valor.innerText;
+    if (pagarPorDica == "SIM") {
+        quantTalentos--;
+        atualizarQuantTalentosHTML();
+        verDica = dica;
+        dicaHTML();
+    }
+    else {
+        dica--;
+        verDica = dica;
+        dicaHTML();
+    }
+    document.getElementById("DicaPerdeTalento").style.display = "none";
 }
 
 function dicaHTML() {
@@ -153,11 +188,11 @@ function dicaHTML() {
             console.log("não existem mais dicas");
             break;
     }
+    document.getElementById("numeroDica").innerHTML = "Dica: " + (dica + 1) + "/" + maxDicas;
 }
 
 function atualizarQuantTalentosHTML() {
     document.getElementsByClassName("quantTalentos")[0].innerHTML = "Talentos: " + quantTalentos;
-    document.getElementsByClassName("quantTalentos")[1].innerHTML = "Talentos: " + quantTalentos;
 }
 
 
@@ -191,25 +226,43 @@ function bt_dicaProxima() {
     }
 }
 
-function aumentarDeposito() {
-    if (deposito < quantTalentos) {
-        deposito++;
-        document.getElementById("valorDeposito").innerHTML = deposito;
+function valorDeposito(valor) {
+    deposito = valor.innerHTML;
+    removeSelecaoDepositoHTML();
+    valor.classList.add("depositoClicado");
+}
+
+function removeSelecaoDepositoHTML() {
+    document.getElementsByClassName("deposito")[0].classList.remove("depositoClicado");
+    document.getElementsByClassName("deposito")[1].classList.remove("depositoClicado");
+    document.getElementsByClassName("deposito")[2].classList.remove("depositoClicado");
+    document.getElementsByClassName("deposito")[3].classList.remove("depositoClicado");
+}
+
+function respostaPersonagemHTML() {
+    let count = document.getElementsByClassName("respostaPersonagem").length;
+    for (let i = 0; i < count; i++) {
+        document.getElementsByClassName("respostaPersonagem")[i].innerHTML = personagem.personagem;
     }
 }
 
-function diminuirDeposito() {
-    if (deposito > 0) {
-        deposito--;
-        document.getElementById("valorDeposito").innerHTML = deposito;
-    }
+function abrirTutorial(){
+    document.getElementById("tutorial").style.display = "flex";
 }
 
-window.aumentarDeposito = aumentarDeposito;
-window.diminuirDeposito = diminuirDeposito;
+function sairTutorial(){
+    document.getElementById("tutorial").style.display = "none";
+}
+
+
+
 window.iniciarJogo = iniciarJogo;
 window.novaDica = novaDica;
 window.bt_dicaAnterior = bt_dicaAnterior;
 window.bt_dicaProxima = bt_dicaProxima;
 window.verificaResposta = verificaResposta;
 window.reiniciarJogo = reiniciarJogo;
+window.valorDeposito = valorDeposito;
+window.pagarDica = pagarDica;
+window.abrirTutorial = abrirTutorial;
+window.sairTutorial = sairTutorial;

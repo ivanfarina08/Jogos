@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-#tutorial {
+#introducaoJogo {
     display: flex;
     z-index: 1;
 }
@@ -21,12 +21,16 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: center;
 }
 
-.flex-row div {
+.deposito {
     line-height: 50px;
-    padding: 10px;
+    margin: 10px;
+    border: solid;
+    padding: 0px 20px;
+    border-radius: 100%;
+    cursor: pointer;
 }
 
-.dicas-flex {
+.space-between-flex {
     justify-content: space-between;
 }
 
@@ -35,6 +39,149 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 1;
 }
 
-.borda {
-    border: solid;
+.text-center {
+    text-align: center;
+}
+
+.TextoTutorial {
+    margin: 0 15px;
+    margin-bottom: 50px;
+    font-size: 1.3em;
+}
+
+.TextoTutorial p {
+    line-height: 2em;
+}
+
+#tutorial {
+    display: none;
+}
+
+.textoIntroducaoJogo {
+    margin: 20px;
+}
+
+.textoIntroducaoJogo h1 {
+    margin-bottom: 10px;
+}
+
+.espacamentoEntre button,
+.espacamentoEntre div {
+    margin: 10px;
+}
+
+.depositoClicado {
+    background-color: rgba(135, 141, 222, 0.801);
+}
+
+.espacamento-tela2 {
+    margin: 10px 10px;
+}
+
+hr {
+    border-color: black;
+}
+
+.botoes-cabecalho {
+    font-size: 2rem;
+    font-weight: 500;
+    width: 50px;
+    height: 1.5em;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+}
+
+#btn_ajuda {
+    background-color: rgb(160, 160, 255);
+}
+
+#bt_novaDica {
+    border: solid 1px black;
+    font-size: 1.1em;
+}
+
+.tamanho-tela-dica {
+    height: 200px;
+}
+
+.entrada-usuario {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 5px;
+    padding: 10px;
+}
+
+.entrada-usuario input {
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', sans-serif;
+}
+
+.entrada-usuario button {
+    margin-left: 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+}
+
+#dica {
+    font-size: 1.2em;
+}
+
+.espaco-cima {
+    margin-top: 40px;
+}
+
+.icon-button {
+    padding: 20px;
+    background-color: rgb(255, 254, 196);
+    box-shadow: none;
+    border: none;
+    border-radius: 4px;
+}
+
+.icon-button .material-symbols-outlined {
+    font-size: 35px;
+    color: #000;
+}
+
+.flex-row img {
+    width: 20%;
+    animation: pulse 0.7s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+#tutorial{
+    z-index: 2;
+}
+
+#tutorial p{
+    padding: 0 22px;
+    font-size: 1.2em;
+    line-height: 40px;
 }
