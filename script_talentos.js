@@ -74,7 +74,18 @@ function randomizaPersonagens(quantPersonagens) {
 function verificaResposta() {
     let respostaUsuario = document.getElementById("resposta").value;
     tentativas++;
-    if (respostaUsuario.toUpperCase() == personagem.personagem.toUpperCase()) {
+
+    let personagemSemAcento = "";
+    for (const element of personagem.personagem) {
+        personagemSemAcento += element.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    let respostaUsuarioSemAcento = "";
+    for (const element of respostaUsuario) {
+        respostaUsuarioSemAcento += element.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    if (respostaUsuarioSemAcento.toUpperCase().trim() == personagemSemAcento.toUpperCase().trim()) {
         acertou();
     }
     else {
@@ -246,11 +257,11 @@ function respostaPersonagemHTML() {
     }
 }
 
-function abrirTutorial(){
+function abrirTutorial() {
     document.getElementById("tutorial").style.display = "flex";
 }
 
-function sairTutorial(){
+function sairTutorial() {
     document.getElementById("tutorial").style.display = "none";
 }
 
