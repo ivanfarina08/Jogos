@@ -43,20 +43,6 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 
-.TextoTutorial {
-    margin: 0 15px;
-    margin-bottom: 50px;
-    font-size: 1.3em;
-}
-
-.TextoTutorial p {
-    line-height: 2em;
-}
-
-#tutorial {
-    display: none;
-}
-
 .textoIntroducaoJogo {
     margin: 20px;
 }
