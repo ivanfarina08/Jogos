@@ -44,12 +44,12 @@
         </div>
 
         <div class="flex-row espacamentoEntre espaco-cima">
-            <button class="icon-button" onclick="abrirTutorial()" title="Abrir o tutorial">
+            <button class="icon-button button" onclick="abrirTutorial()" title="Abrir o tutorial">
                 <span class="material-symbols-outlined">
                     question_mark
                 </span>
             </button>
-            <button class="icon-button" id="bt_jogar" onclick="iniciarJogo()" title="Iniciar Jogo">
+            <button class="icon-button button" id="bt_jogar" onclick="iniciarJogo()" title="Iniciar Jogo">
                 <span class="material-symbols-outlined">
                     play_arrow
                 </span>
@@ -66,7 +66,7 @@
         <p>Você poderá pedir dicas para ajudar a achar a resposta</p>
         <p>A primeira dica é gratuita</p>
         <p>As outras custará 1 talento cada uma</p>
-        <div class="icon-button espaco-cima" onclick="sairTutorial()">
+        <div class="icon-button espaco-cima button" onclick="sairTutorial()">
             <span class="material-symbols-outlined">
                 arrow_back
             </span>
@@ -80,7 +80,7 @@
         </div>
         <hr>
 
-        <div class="text-center espacamento-tela2 dica" onclick="novaDica()" id="bt_novaDica">
+        <div class="text-center espacamento-tela2 dica button" onclick="novaDica()" id="bt_novaDica">
             Pedir dica
             <span class="material-symbols-outlined ideia">
                 lightbulb
@@ -88,7 +88,7 @@
         </div>
 
         <div class="flex-row space-between-flex espacamento-tela2 tamanho-tela-dica">
-            <div class="borda" onclick="bt_dicaAnterior()">
+            <div class="borda button" onclick="bt_dicaAnterior()">
                 <span class="material-symbols-outlined">
                     arrow_back_ios
                 </span>
@@ -96,7 +96,7 @@
             <div class="espacamento-tela2">
                 <p class="text-center" id="dica"></p>
             </div>
-            <div class="borda" onclick="bt_dicaProxima()">
+            <div class="borda button" onclick="bt_dicaProxima()">
                 <span class="material-symbols-outlined">
                     arrow_forward_ios
                 </span>
@@ -106,7 +106,7 @@
         <div class="entrada-usuario">
             <input type="text" name="resposta" id="resposta" placeholder="Digite sua resposta">
             <button type="submit" onclick="verificaResposta()">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined button">
                     send
                 </span>
             </button>
@@ -149,10 +149,10 @@
         <h2>A partir de agora, será necessário pagar 1 talento por novas dicas</h2>
         <h2>Deseja pedir nova dica?</h2>
         <div class="flex-row espacamentoEntre espaco-cima">
-            <div class="botao_jogo_parado" onclick="pagarDica(this)">
+            <div class="botao_jogo_parado button" onclick="pagarDica(this)">
                 Sim
             </div>
-            <div class="botao_jogo_parado" onclick="pagarDica(this)">
+            <div class="botao_jogo_parado button" onclick="pagarDica(this)">
                 Não
             </div>
         </div>

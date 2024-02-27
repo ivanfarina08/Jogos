@@ -197,3 +197,7 @@ hr {
 .dica{
     background-color: rgb(212, 174, 247);
 }
+
+.button{
+    cursor: pointer;
+}
