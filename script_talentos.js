@@ -104,6 +104,7 @@ function acertou() {
 
 function errou() {
     if (tentativas == maxTentativas) {
+        quantTalentos -= parseInt(deposito)
         document.getElementById("Errou").style.display = "flex";
         respostaPersonagemHTML();
         setTimeout(function () {

@@ -88,6 +88,7 @@ hr {
 #bt_novaDica {
     border: solid 1px black;
     font-size: 1.1em;
+    padding: 15px;
 }
 
 .tamanho-tela-dica {
@@ -145,7 +146,7 @@ hr {
 
 .flex-row img {
     width: 20%;
-    animation: pulse 0.7s infinite;
+    animation: pulse 0.5s infinite;
 }
 
 @keyframes pulse {
@@ -183,10 +184,6 @@ hr {
 
 .Errou {
     background-color: rgb(240, 109, 109);
-}
-
-#bt_novaDica{
-    padding: 15px;
 }
 
 .cabecalho{
