@@ -25,6 +25,7 @@ function iniciarJogo() {
         carregaPersonagem();
         dicaHTML();
         document.getElementById("valorDeposito").innerHTML = "Deposito:" + deposito;
+        document.getElementById("tema").innerHTML = "Tema do jogo: " + personagem.tema;
     }
 }
 
@@ -76,7 +77,7 @@ function verificaResposta() {
     tentativas++;
 
     let personagemSemAcento = "";
-    for (const element of personagem.personagem) {
+    for (const element of personagem.nome) {
         personagemSemAcento += element.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
@@ -254,7 +255,7 @@ function removeSelecaoDepositoHTML() {
 function respostaPersonagemHTML() {
     let count = document.getElementsByClassName("respostaPersonagem").length;
     for (let i = 0; i < count; i++) {
-        document.getElementsByClassName("respostaPersonagem")[i].innerHTML = personagem.personagem.toUpperCase();
+        document.getElementsByClassName("respostaPersonagem")[i].innerHTML = personagem.nome.toUpperCase();
     }
 }
 
