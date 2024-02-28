@@ -164,11 +164,11 @@ hr {
 }
 
 
-#tutorial{
+#tutorial {
     z-index: 2;
 }
 
-#tutorial p{
+#tutorial p {
     padding: 0 22px;
     font-size: 1.2em;
     line-height: 40px;
@@ -186,25 +186,39 @@ hr {
     background-color: rgb(240, 109, 109);
 }
 
-.cabecalho{
+.cabecalho {
     padding: 15px;
 }
 
-.ideia{
+.ideia {
     padding: 0;
 }
 
-.dica{
+.dica {
     background-color: rgb(212, 174, 247);
 }
 
-.button{
+.button {
     cursor: pointer;
 }
 
-.flex-column{
+.flex-column {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+#mensagem {
+    display:none;
+}
+
+.mensagem{
+    background-color: #000;
+    color: #fff;
+}
+
+.espaco-pequeno-cima{
+    margin-top: 10px;
 }

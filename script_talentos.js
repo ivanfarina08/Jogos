@@ -1,16 +1,18 @@
 import { dados } from "./dados_talentos.js";
 
+const maxDicas = 5;
+const maxTentativas = 3;
+const inicioTalentos = 3;
+const maxTalentos = 30;
 let personagem;
 let indicePersonagemAtual = 0;
 let dica = 0;
-let quantTalentos = 10;
+let quantTalentos = inicioTalentos;
 let deposito = 0;
 let tentativas = 0;
 let ordem_dicas = [];
 let ordem_personagens = [];
 let verDica = 0;
-const maxDicas = 5;
-const maxTentativas = 3;
 
 
 function getRandomInt(max) {
@@ -143,19 +145,39 @@ function limpaTela() {
 }
 
 function novaDica() {
+    let talentosAtuais = quantTalentos - deposito;
     if (dica < 4) {
         dica++;
-        if (dica == 2) {
-            document.getElementById("DicaPerdeTalento").style.display = "flex";
+        if (dica == 1) {
+            darDica();
         }
+        else {
+            if (talentosAtuais > 0) {
+                if (dica == 2) {
+                    document.getElementById("DicaPerdeTalento").style.display = "flex";
+                }
 
-        if (dica > 2) {
-            quantTalentos--;
-            atualizarQuantTalentosHTML();
+                if (dica > 2) {
+
+                    quantTalentos--;
+                    atualizarQuantTalentosHTML();
+                }
+                darDica()
+            }
+            else {
+                dica--;
+                document.getElementById("mensagem").style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById("mensagem").style.display = 'none';
+                }, 1000);
+            }
         }
-        verDica = dica;
-        dicaHTML();
     }
+}
+
+function darDica() {
+    verDica = dica;
+    dicaHTML();
 }
 
 function pagarDica(valor) {
@@ -220,7 +242,7 @@ function carregaPersonagemAtual(id) {
 
 
 function reiniciarJogo() {
-    quantTalentos = 10;
+    quantTalentos = inicioTalentos;
     document.getElementById("GameOver").style.display = "none";
     limpaTela();
 }
@@ -240,9 +262,11 @@ function bt_dicaProxima() {
 }
 
 function valorDeposito(valor) {
-    deposito = valor.innerHTML;
-    removeSelecaoDepositoHTML();
-    valor.classList.add("depositoClicado");
+    if (quantTalentos >= valor.innerText) {
+        deposito = valor.innerText;
+        removeSelecaoDepositoHTML();
+        valor.classList.add("depositoClicado");
+    }
 }
 
 function removeSelecaoDepositoHTML() {

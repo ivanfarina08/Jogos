@@ -144,7 +144,7 @@ export const dados = [
     "nome": "Nosso Lar",
     "tema": "Livros",
     "dica1": "Seu protagonista é André Luiz",
-    "dica2": "Conta a história de um médico que desencarnou foi para o umbral e depois foi acolhido em uma colônia espiritual",
+    "dica2": "Conta a história de um médico que desencarnou",
     "dica3": "Tem o nome de uma colônia espiritual",
     "dica4": "Ensina como é o mundo do lado espiritual",
     "dica5": "Possui um filme"
