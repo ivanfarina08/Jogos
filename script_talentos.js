@@ -2,7 +2,7 @@ import { dados } from "./dados_talentos.js";
 
 const maxDicas = 5;
 const maxTentativas = 3;
-const inicioTalentos = 3;
+const inicioTalentos = 5;
 const maxTalentos = 30;
 let personagem;
 let indicePersonagemAtual = 0;
