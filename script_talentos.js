@@ -98,11 +98,16 @@ function verificaResposta() {
 
 function acertou() {
     quantTalentos += parseInt(deposito) * 2;
-    document.getElementById("Ganhou").style.display = "flex";
-    respostaPersonagemHTML();
-    setTimeout(function () {
-        limpaTela();
-    }, 3000);
+    if (quantTalentos>=maxTalentos){
+        document.getElementById("Campeao").style.display = "flex";    
+    }
+    else{
+        document.getElementById("Ganhou").style.display = "flex";
+        respostaPersonagemHTML();
+        setTimeout(function () {
+            limpaTela();
+        }, 3000);
+    }    
 }
 
 function errou() {
@@ -132,6 +137,7 @@ function limpaTela() {
     document.getElementById("introducaoJogo").style.display = "flex";
     document.getElementById("Ganhou").style.display = "none";
     document.getElementById("Errou").style.display = "none";
+    document.getElementById("Campeao").style.display = "none";
     dica = 0;
     tentativas = 0;
     verDica = 0;

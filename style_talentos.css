@@ -222,3 +222,14 @@ hr {
 .espaco-pequeno-cima{
     margin-top: 10px;
 }
+
+.btCampeao{
+    border: solid yellow;
+    color: yellow;
+    font-weight: 400;
+}
+
+.btCampeao:hover{
+    --color: yellow;
+    color: #000;
+}
