@@ -98,56 +98,78 @@ function verificaResposta() {
 
 function acertou() {
     quantTalentos += parseInt(deposito) * 2;
-    if (quantTalentos>=maxTalentos){
-        document.getElementById("Campeao").style.display = "flex";    
+    if (quantTalentos >= maxTalentos) {
+        acertouCampeao();
     }
-    else{
-        document.getElementById("Ganhou").style.display = "flex";
-        respostaPersonagemHTML();
-        setTimeout(function () {
-            limpaTela();
-        }, 3000);
-    }    
+    else {
+        acertouPersonagem();
+    }
+}
+
+function acertouCampeao() {
+    document.getElementById("Campeao").style.display = "flex";
+}
+
+function acertouPersonagem() {
+    document.getElementById("Ganhou").style.display = "flex";
+    respostaPersonagemHTML();
+    setTimeout(function () {
+        limpaTela();
+    }, 3000);
 }
 
 function errou() {
     if (tentativas == maxTentativas) {
-        quantTalentos -= parseInt(deposito)
-        document.getElementById("Errou").style.display = "flex";
-        respostaPersonagemHTML();
-        setTimeout(function () {
-            limpaTela();
-        }, 3000);
+        errouAcabouTentativas();
     }
     else {
-        document.getElementById("Tentativa").style.display = "flex";
-        document.getElementById("numeroTentativas").innerHTML = "Você tem mais " + (maxTentativas - tentativas) + " tentativas";
-        setTimeout(function () {
-            document.getElementById("Tentativa").style.display = "none";
-        }, 3000);
+        errouMostraNumeroTentativasRestante();
     }
 }
 
+function errouAcabouTentativas() {
+    quantTalentos -= parseInt(deposito);
+    document.getElementById("Errou").style.display = "flex";
+    respostaPersonagemHTML();
+    setTimeout(function () {
+        limpaTela();
+    }, 3000);
+}
 
+function errouMostraNumeroTentativasRestante() {
+    document.getElementById("Tentativa").style.display = "flex";
+    document.getElementById("numeroTentativas").innerHTML = "Você tem mais " + (maxTentativas - tentativas) + " tentativas";
+    setTimeout(function () {
+        document.getElementById("Tentativa").style.display = "none";
+    }, 3000);
+}
 
 function limpaTela() {
-    document.getElementById("dica").innerHTML = "";
-    document.getElementById("resposta").value = "";
-    atualizarQuantTalentosHTML();
-    document.getElementById("introducaoJogo").style.display = "flex";
-    document.getElementById("Ganhou").style.display = "none";
-    document.getElementById("Errou").style.display = "none";
-    document.getElementById("Campeao").style.display = "none";
-    dica = 0;
-    tentativas = 0;
-    verDica = 0;
-    document.getElementById("bt_novaDica").disabled = false;
-    document.getElementById("valorDeposito").innerHTML = 0;
-    deposito = 0;
+    limpaHTML();
+    limpaVariaveis();
     if (quantTalentos <= 0) {
         document.getElementById("GameOver").style.display = "flex";
     }
+    document.getElementById("introducaoJogo").style.display = "flex";
+}
+
+function limpaHTML() {
+    document.getElementById("dica").innerHTML = "";
+    document.getElementById("resposta").value = "";
+    document.getElementById("Ganhou").style.display = "none";
+    document.getElementById("Errou").style.display = "none";
+    document.getElementById("Campeao").style.display = "none";
+    document.getElementById("bt_novaDica").disabled = false;
+    document.getElementById("valorDeposito").innerHTML = 0;
+    atualizarQuantTalentosHTML();
     removeSelecaoDepositoHTML();
+}
+
+function limpaVariaveis() {
+    dica = 0;
+    tentativas = 0;
+    verDica = 0;
+    deposito = 0;
 }
 
 function novaDica() {
@@ -155,30 +177,40 @@ function novaDica() {
     if (dica < 4) {
         dica++;
         if (dica == 1) {
-            darDica();
+            dicaGratis();
+        }
+        if (talentosAtuais > 0) {
+            dicaPaga();
         }
         else {
-            if (talentosAtuais > 0) {
-                if (dica == 2) {
-                    document.getElementById("DicaPerdeTalento").style.display = "flex";
-                }
-
-                if (dica > 2) {
-
-                    quantTalentos--;
-                    atualizarQuantTalentosHTML();
-                }
-                darDica()
-            }
-            else {
-                dica--;
-                document.getElementById("mensagem").style.display = 'block';
-                setTimeout(function () {
-                    document.getElementById("mensagem").style.display = 'none';
-                }, 1000);
-            }
+            dicaSemTalentosSuficientes();
         }
     }
+}
+
+function dicaGratis() {
+    darDica();
+}
+
+function dicaPaga() {
+    if (dica == 2) {
+        document.getElementById("DicaPerdeTalento").style.display = "flex";
+    }
+
+    if (dica > 2) {
+        quantTalentos--;
+        atualizarQuantTalentosHTML();
+    }
+    
+    darDica();
+}
+
+function dicaSemTalentosSuficientes() {
+    dica--;
+    document.getElementById("mensagem").style.display = 'block';
+    setTimeout(function () {
+        document.getElementById("mensagem").style.display = 'none';
+    }, 1000);
 }
 
 function darDica() {
