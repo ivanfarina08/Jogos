@@ -66,8 +66,6 @@ let classeDificuldade = '';
 let palavrasDescobertas = [];
 let acertos = 0;
 
-jogandoAtualmente = false;
-
 class Palavra {
     constructor(text, start, end) {
         this.text = text;
@@ -91,6 +89,12 @@ function inicializa_jogo() {
     menu();
 }
 
+function limpaJogo(){
+    palavrasDescobertas = [];
+    acertos = 0;
+    palavras = [];
+}
+
 function abrirDificuldade() {
     document.getElementById('menu').style.display = "none";
     document.getElementById('dificuldade').style.display = "flex";
@@ -103,6 +107,11 @@ function abrirTutorial() {
 
 function fecharTutorial() {
     document.getElementById('tutorial').style.display = "none";
+    document.getElementById('menu').style.display = "flex";
+}
+
+function desistir() {
+    limpaJogo();
     document.getElementById('menu').style.display = "flex";
 }
 
@@ -326,13 +335,14 @@ function configurarDificuldade(x) {
 function menu() {
     let menu = document.getElementById("menu");
     menu.style.display = "flex";
-
+    limpaJogo();
     console.log("" + document.getElementById("botaoFacil").style.display)
 }
 
 function fecharMenu() {
     let menu = document.getElementById("menu");
     menu.style.display = "none";
+    
 }
 
 //--------------------------------------------------------------------------
@@ -397,6 +407,9 @@ function corrigirPosicao(s, e, cull) {
 
 function remarcarAchados() {
     let palavra;
+    /*for(const letras in document.getElementsByClassName('board-button')){
+        letras.className = "board-button " + classeDificuldade;
+    }*/
     for (let p = 0; p < palavrasDescobertas.length; p++) {
         palavra = palavrasDescobertas[p];
         console.log("REMARCANDO: " + palavra.text)
@@ -472,6 +485,7 @@ function checkSelection(start, end) {
         remarcarAchados();
     }
     if (acertos == quantidadePalavras) {
+        limpaJogo();
         document.getElementById("Ganhou").style.display = "flex";
         setTimeout(function () {
             document.getElementById("Ganhou").style.display = "none";
@@ -480,30 +494,4 @@ function checkSelection(start, end) {
     }
 }
 
-
-
-
-// --------------------**********************----------------------
-// Funções do jogo
-
-function fim_jogo() {
-    acertos = 0;
-    setTimeout(function () {
-        document.getElementById("fim_jogo").style.display = "flex";
-    }, 1000);
-}
-
-function reseta_jogo() {
-    for (let i = 0; i < 24; i++) {
-        let elemento = document.getElementById("img" + i);
-        elemento.src = "img/virada.png";
-        elemento.onclick = function onclick(event) {
-            clicaCarta(i);
-        };
-    }
-    document.getElementById("fim_jogo").style.display = "none";
-    inicializa_jogo();
-}
-
-//  inicializa o jogo
 inicializa_jogo();
