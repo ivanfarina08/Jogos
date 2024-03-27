@@ -5,6 +5,8 @@ body {
     overflow: hidden;
     background-color: #fbff8eba;
     font-family:"Playpen Sans";
+    height: 100vh;
+    vertical-align: middle;
 }
 
 .celular {
