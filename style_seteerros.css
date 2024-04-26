@@ -4,29 +4,26 @@
   }
 
   img {
-    height: 40vh;
+    height: 48vh;
+    width:  fit-content;
     border: solid;
     margin: 2px;
   }
 
   svg {
-    height: 40vh;
+    height: 48vh;
     border: solid;
     margin: 2px;
   }
 
   .principal {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
   }
 
   @media (max-width: 600px) {
-    .principal {
-      flex-direction: column;
-      align-items: center;
-    }
-
     img {
       height: auto;
       width: 98%;
