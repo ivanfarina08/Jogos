@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+body{
+    overflow: auto;
+}
+
 img {
     height: 40vh;
     width: fit-content;
