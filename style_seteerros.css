@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0px;
+  }
+
+  img {
+    height: 40vh;
+    border: solid;
+    margin: 2px;
+  }
+
+  svg {
+    height: 40vh;
+    border: solid;
+    margin: 2px;
+  }
+
+  .principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media (max-width: 600px) {
+    .principal {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      height: auto;
+      width: 98%;
+    }
+
+    svg {
+      height: auto;
+      width: 98%;
+    }
+  }
