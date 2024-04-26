@@ -110,6 +110,5 @@ function destacaErro(erro){
 
 function ganhou(){
     alert("parabens!");
-    location.reload();
 }
 
