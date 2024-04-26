@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo dos 7 erros</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0px;
+    }
+    img {
+      height: 40vh;
+      border: solid;
+    }
+
+    svg {
+      height: 40vh;
+      border: solid;
+    }
+
+    @media (max-width: 600px) {
+      img{
+        height: auto;
+        width: 100%;
+      }
+      svg{
+        height: auto;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    Fazer map em imagem
+    https://imagemapper.pageballoon.com/#/
+  -->
+  <img id="caminhoImagemSemErro" src="/img/sete_erros/Imagem 6 - 1.png" alt="">
+  <svg id="imagemComErro" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 639 366">
+    <image id="caminhoImagemSemErro" width="639" height="366" xlink:href="/img/sete_erros/Imagem 6 - 2.png"></image>
+    <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
+      <rect id="rect1" x="555" y="252" fill="#fff" opacity="0" width="57" height="79"></rect>
+    </a>
+    <a id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect id="rect2" x="74" y="144" fill="#fff" opacity="0" width="50" height="100"></rect>
+    </a>
+    <a id="erro3" onclick="erroClicado(3)" xlink:href="#">
+      <rect id="rect3" x="0" y="145" fill="#fff" opacity="0" width="50" height="100"></rect>
+    </a>
+    <a id="erro4" onclick="erroClicado(4)" xlink:href="#">
+      <rect id="rect4" x="315" y="304" fill="#fff" opacity="0" width="63" height="50"></rect>
+    </a>
+    <a id="erro5" onclick="erroClicado(5)" xlink:href="#">
+      <rect id="rect5" x="367" y="104" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+    <a id="erro6" onclick="erroClicado(6)" xlink:href="#">
+      <rect id="rect6" x="150" y="188" fill="#fff" opacity="0" width="50" height="69"></rect>
+    </a>
+    <a id="erro7" onclick="erroClicado(7)" xlink:href="#">
+      <rect id="rect7" x="512" y="76" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+
+
+  <!--
+  Imagem 1
+  <img src="/img/sete_erros/Imagem 1 - 1.png" alt="">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 639 366">
+    <image width="639" height="366" xlink:href="/img/sete_erros/Imagem 1 - 2.png"></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
+      <rect x="99" y="70" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect x="69" y="166" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">
+      <rect x="212" y="47" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">
+      <rect x="286" y="69" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">
+      <rect x="340" y="242" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">
+      <rect x="392" y="0" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">
+      <rect x="522" y="197" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+
+  Imagem 2
+  <img src="/img/sete_erros/Imagem 2 - 1.png" alt="">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 639 366">
+    <image width="639" height="366" xlink:href="/img/sete_erros/Imagem 2 - 2.png"></image> <a id="erro1"
+      onclick="erroClicado(1)" xlink:href="#">
+      <rect x="589" y="83" fill="#fff" opacity="0" width="50" height="90"></rect>
+    </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect x="520" y="222" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">
+      <rect x="408" y="311" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">
+      <rect x="157" y="149" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">
+      <rect x="388" y="83" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">
+      <rect x="85" y="233" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">
+      <rect x="0" y="0" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+
+  Imagem 3
+  <img src="/img/sete_erros/Imagem 3 - 1.png" alt="">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 639 366">
+    <image width="639" height="366" xlink:href="/img/sete_erros/Imagem 3 - 2.png"></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
+      <rect x="569" y="310" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a  id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect x="388" y="316" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro3" onclick="erroClicado(3)"  xlink:href="#">
+      <rect x="303" y="120" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro4" onclick="erroClicado(4)"  xlink:href="#">
+      <rect x="274" y="208" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro5" onclick="erroClicado(5)"  xlink:href="#">
+      <rect x="122" y="96" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro6" onclick="erroClicado(6)"  xlink:href="#">
+      <rect x="53" y="163" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro7" onclick="erroClicado(7)"  xlink:href="#">
+      <rect x="589" y="207" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+
+  Imagem 4
+  <img src="/img/sete_erros/Imagem 4 - 1.png" alt="">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 639 366">
+    <image width="639" height="366" xlink:href="/img/sete_erros/Imagem 4 - 2.png"></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
+      <rect x="254" y="105" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect x="589" y="218" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">
+      <rect x="491" y="128" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">
+      <rect x="573" y="0" fill="#fff" opacity="0" width="66" height="73"></rect>
+    </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">
+      <rect x="431" y="315" fill="#fff" opacity="0" width="70" height="50"></rect>
+    </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">
+      <rect x="129" y="299" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">
+      <rect x="464" y="189" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+
+  Imagem 5
+  <img src="/img/sete_erros/Imagem 5 - 1.png" alt="">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 639 366">
+    <image width="639" height="366" xlink:href="/img/sete_erros/Imagem 5 - 2.png"></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
+      <rect x="305" y="1" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect x="516" y="221" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">
+      <rect x="360" y="298" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">
+      <rect x="420" y="68" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">
+      <rect x="382" y="242" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">
+      <rect x="24" y="107" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">
+      <rect x="55" y="8" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+
+  Imagem 6
+  <img src="/img/sete_erros/Imagem 6 - 1.png" alt="">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 639 366">
+    <image width="639" height="366" xlink:href="/img/sete_erros/Imagem 6 - 2.png"></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
+      <rect x="555" y="252" fill="#fff" opacity="0" width="57" height="79"></rect>
+    </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">
+      <rect x="74" y="144" fill="#fff" opacity="0" width="50" height="100"></rect>
+    </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">
+      <rect x="0" y="145" fill="#fff" opacity="0" width="50" height="100"></rect>
+    </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">
+      <rect x="315" y="304" fill="#fff" opacity="0" width="63" height="50"></rect>
+    </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">
+      <rect x="367" y="104" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">
+      <rect x="150" y="188" fill="#fff" opacity="0" width="50" height="69"></rect>
+    </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">
+      <rect x="512" y="76" fill="#fff" opacity="0" width="50" height="50"></rect>
+    </a>
+  </svg>
+-->
+
+
+</body>
+
+<script src="script_seteerros.js"></script>
+
+</html>
