@@ -6,28 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jogo dos 7 erros</title>
   <style>
-    *{
+    * {
       margin: 0;
       padding: 0px;
     }
+
     img {
       height: 40vh;
       border: solid;
+      margin: 2px;
     }
 
     svg {
       height: 40vh;
       border: solid;
+      margin: 2px;
+    }
+
+    .principal {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
     }
 
     @media (max-width: 600px) {
-      img{
-        height: auto;
-        width: 100%;
+      .principal {
+        flex-direction: column;
+        align-items: center;
       }
-      svg{
+
+      img {
         height: auto;
-        width: 100%;
+        width: 98%;
+      }
+
+      svg {
+        height: auto;
+        width: 98%;
       }
     }
   </style>
@@ -38,32 +53,11 @@
     Fazer map em imagem
     https://imagemapper.pageballoon.com/#/
   -->
-  <img id="caminhoImagemSemErro" src="" alt="">
-  <svg id="imagemComErro" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    viewBox="0 0 639 366">
-    <image id="caminhoImagemSemErro" width="639" height="366" xlink:href=""></image>
-    <a id="erro1" onclick="erroClicado(1)" xlink:href="#">
-      <rect id="rect1" x="555" y="252" fill="#fff" opacity="0" width="57" height="79"></rect>
-    </a>
-    <a id="erro2" onclick="erroClicado(2)" xlink:href="#">
-      <rect id="rect2" x="74" y="144" fill="#fff" opacity="0" width="50" height="100"></rect>
-    </a>
-    <a id="erro3" onclick="erroClicado(3)" xlink:href="#">
-      <rect id="rect3" x="0" y="145" fill="#fff" opacity="0" width="50" height="100"></rect>
-    </a>
-    <a id="erro4" onclick="erroClicado(4)" xlink:href="#">
-      <rect id="rect4" x="315" y="304" fill="#fff" opacity="0" width="63" height="50"></rect>
-    </a>
-    <a id="erro5" onclick="erroClicado(5)" xlink:href="#">
-      <rect id="rect5" x="367" y="104" fill="#fff" opacity="0" width="50" height="50"></rect>
-    </a>
-    <a id="erro6" onclick="erroClicado(6)" xlink:href="#">
-      <rect id="rect6" x="150" y="188" fill="#fff" opacity="0" width="50" height="69"></rect>
-    </a>
-    <a id="erro7" onclick="erroClicado(7)" xlink:href="#">
-      <rect id="rect7" x="512" y="76" fill="#fff" opacity="0" width="50" height="50"></rect>
-    </a>
-  </svg>
+  <div class="principal">
+    <img id="caminhoImagemSemErro" src="" alt="">
+    <svg id="imagemComErro" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 639 366"></svg>
+  </div>
 
 
   <!--
