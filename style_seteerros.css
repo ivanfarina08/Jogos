@@ -1,36 +1,128 @@
 * {
     margin: 0;
     padding: 0px;
-  }
+}
 
-  img {
-    height: 48vh;
-    width:  fit-content;
-    border: solid;
+img {
+    height: 40vh;
+    width: fit-content;
     margin: 2px;
-  }
+}
 
-  svg {
-    height: 48vh;
-    border: solid;
+svg {
+    height: 40vh;
     margin: 2px;
-  }
+}
 
-  .principal {
+.principal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:center;
-  }
+    justify-content: center;
+}
 
-  @media (max-width: 600px) {
+#introducao {
+    display: flex;
+    z-index: 1;
+}
+
+#introducao {
+    display: flex;
+    z-index: 1;
+}
+
+.textoIntroducaoJogo {
+    margin: 20px;
+}
+
+.textoIntroducaoJogo h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.icon-button {
+    padding: 20px;
+    background-color: rgb(255, 254, 196);
+    box-shadow: none;
+    border: none;
+    border-radius: 4px;
+}
+
+.espacamentoEntre button,
+.espacamentoEntre div {
+    margin: 10px;
+}
+
+.espaco-cima {
+    margin-top: 40px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-button .material-symbols-outlined {
+    font-size: 35px;
+    color: #000;
+}
+
+.btn-jogo {
+    font-size: 1.5em;
+    width: 8em;
+    padding: 0.5em;
+    margin: 0.5em;
+    background-color: transparent;
+    border: solid white;
+    color: white;
+}
+
+.btn-jogo:hover {
+    background-color: #f1ff76;
+    color: #000000;
+    transition: background-color 0.5s ease;
+}
+
+.btn-desistir {
+    background-color: rgb(252, 82, 82);
+    border: rgb(255, 148, 148);
+    color: white;
+}
+
+.btn-desistir:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transition: background-color 0.5s ease;
+}
+
+a{
+    cursor:default;
+}
+
+hr {
+    width: 25%;
+    border: 2px solid;
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .espaco-cima {
+        margin-top: 20px;
+    }
+
     img {
-      height: auto;
-      width: 98%;
+        height: auto;
+        width: 98%;
     }
 
     svg {
-      height: auto;
-      width: 98%;
+        height: auto;
+        width: 98%;
     }
-  }
+
+    hr{
+        width: 50%;
+    }
+}

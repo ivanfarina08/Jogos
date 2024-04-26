@@ -29,18 +29,18 @@ const quantErroMax = 7;
 const quantImagensMax = 6;
 let quantErro = 0;
 let ordemImagens = [];
+let jogoAtual = 0;
 
 function inicializaJogo(){
     randomizaImagem();
-    let caminhoImagemSemErro = "img/sete_erros/Imagem "+ordemImagens[0]+" - 1.png";
-    let caminhoImagemComErro = "img/sete_erros/Imagem "+ordemImagens[0]+" - 2.png";
-    let dadosImagem = obterDadosPorId(ordemImagens[0]);
+    let caminhoImagemSemErro = "img/sete_erros/Imagem "+ordemImagens[jogoAtual]+" - 1.png";
+    let caminhoImagemComErro = "img/sete_erros/Imagem "+ordemImagens[jogoAtual]+" - 2.png";
+    let dadosImagem = obterDadosPorId(ordemImagens[jogoAtual]);
     document.getElementById("caminhoImagemSemErro").src = caminhoImagemSemErro;
     document.getElementById("imagemComErro").innerHTML = dadosImagem.canva;
     document.getElementById("caminhoImagemComErro").setAttributeNS("http://www.w3.org/1999/xlink","href",caminhoImagemComErro);
+    document.getElementById("introducao").style.display="none";
 }
-
-inicializaJogo();
 
 function obterDadosPorId(id) {
     // Procurar no array pelo objeto com o ID correspondente
@@ -109,7 +109,22 @@ function destacaErro(erro){
 }
 
 function ganhou(){
-    alert("parabens!");
-    location.reload();
+    atualizaJogoAtual();
+    
 }
 
+function desistir(){
+    atualizaJogoAtual();
+    document.getElementById("introducao").style.display="flex";
+}
+
+function atualizaJogoAtual(){
+    //jogoAtual
+    if(jogoAtual==quantImagensMax){
+        randomizaImagem();
+        jogoAtual=0;
+    }
+    else{
+        jogoAtual++;
+    }
+}

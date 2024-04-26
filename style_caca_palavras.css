@@ -274,16 +274,6 @@ p {
   color: white;
 }
 
-.btn-jogo{
-  font-size: 1.5em;
-  width: 8em;
-  padding: 0.5em;
-  margin: 0.5em;
-  background-color: transparent;
-  border: solid white;
-  color: white;
-}
-
 .btn-jogo:hover{
   background-color: #f1ff76;
   color: #000000;
