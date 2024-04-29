@@ -28,11 +28,51 @@ const dados = [
         "id":6,
         "descricao":"Nascimento de Jesus",
         "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">      <rect x="555" y="252" fill="#fff" opacity="0" width="57" height="79"></rect>    </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">      <rect x="74" y="144" fill="#fff" opacity="0" width="50" height="100"></rect>    </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">      <rect x="0" y="145" fill="#fff" opacity="0" width="50" height="100"></rect>    </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">      <rect x="315" y="304" fill="#fff" opacity="0" width="63" height="50"></rect>    </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">      <rect x="367" y="104" fill="#fff" opacity="0" width="50" height="50"></rect>    </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">      <rect x="150" y="188" fill="#fff" opacity="0" width="50" height="69"></rect>    </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">      <rect x="512" y="76" fill="#fff" opacity="0" width="50" height="50"></rect>    </a>'
-    }
+    },
+    {
+        "id":7,
+        "descricao":"Jesus e João Batista",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="589" y="130" fill="#fff" opacity="0" width="50" height="56"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="424" y="237" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="462" y="176" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="306" y="25" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="28" y="125" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="42" y="257" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="155" y="102" fill="#fff" opacity="0" width="50" height="50"></rect>  </a>'
+    },
+    {
+        "id":8,
+        "descricao":"Jesus no templo",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="446" y="21" fill="#fff" opacity="0" width="122" height="50"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="589" y="102" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="421" y="296" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="348" y="156" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="69" y="160" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="19" y="168" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="0" y="12" fill="#fff" opacity="0" width="50" height="50"></rect>  </a>'
+    },
+    {
+        "id":9,
+        "descricao":"Jesus acalma as águas",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="521" y="12" fill="#fff" opacity="0" width="99" height="54"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="580" y="206" fill="#fff" opacity="0" width="55" height="100"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="265" y="82" fill="#fff" opacity="0" width="50" height="58"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="210" y="154" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="417" y="89" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="61" y="46" fill="#fff" opacity="0" width="50" height="54"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="0" y="30" fill="#fff" opacity="0" width="50" height="89"></rect>  </a>'
+    },
+    {
+        "id":10,
+        "descricao":"Sermão do monte",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="186" y="0" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="575" y="88" fill="#fff" opacity="0" width="64" height="65"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="359" y="316" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="78" y="200" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="58" y="250" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="208" y="269" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="0" y="60" fill="#fff" opacity="0" width="57" height="117"></rect>  </a>'
+    },
+    {
+        "id":11,
+        "descricao":"Última Ceia",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="376" y="39" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="540" y="56" fill="#fff" opacity="0" width="99" height="50"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="318" y="266" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="208" y="271" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="62" y="125" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="193" y="72" fill="#fff" opacity="0" width="100" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="457" y="185" fill="#fff" opacity="0" width="50" height="74"></rect>  </a>'
+    },
+    {
+        "id":12,
+        "descricao":"Torre de Babel",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="385" y="44" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="267" y="123" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="442" y="160" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="589" y="254" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="218" y="219" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="21" y="255" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="354" y="281" fill="#fff" opacity="0" width="50" height="50"></rect>  </a>'
+    },
+    {
+        "id":13,
+        "descricao":"Moisés e o povo no deserto",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="278" y="0" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="460" y="29" fill="#fff" opacity="0" width="50" height="69"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="574" y="118" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="280" y="314" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="49" y="103" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="162" y="219" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="9" y="17" fill="#fff" opacity="0" width="50" height="50"></rect>  </a>'
+    },
+    {
+        "id":14,
+        "descricao":"Davi x Golias",
+        "html": '<image id="caminhoImagemComErro" width="639" height="366" xlink:href=""></image> <a  id="erro1" onclick="erroClicado(1)" xlink:href="#">    <rect x="479" y="54" fill="#fff" opacity="0" width="50" height="100"></rect>  </a><a id="erro2" onclick="erroClicado(2)" xlink:href="#">    <rect x="547" y="112" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro3" onclick="erroClicado(3)" xlink:href="#">    <rect x="229" y="240" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro4" onclick="erroClicado(4)" xlink:href="#">    <rect x="137" y="169" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro5" onclick="erroClicado(5)" xlink:href="#">    <rect x="16" y="33" fill="#fff" opacity="0" width="50" height="100"></rect>  </a><a id="erro6" onclick="erroClicado(6)" xlink:href="#">    <rect x="220" y="110" fill="#fff" opacity="0" width="50" height="50"></rect>  </a><a id="erro7" onclick="erroClicado(7)" xlink:href="#">    <rect x="357" y="62" fill="#fff" opacity="0" width="50" height="50"></rect>  </a>'
+    },
 ]
 
 const quantErroMax = 7;
-const quantImagensMax = 6;
+const quantImagensMax = 14;
 let quantErro = 0;
 let ordemImagens = [];
 let jogoAtual = 0;
@@ -47,6 +87,7 @@ function inicializaJogo(){
     document.getElementById("caminhoImagemComErro").setAttributeNS("http://www.w3.org/1999/xlink","href",caminhoImagemComErro);
     document.getElementById("introducao").style.display="none";
     document.getElementById("descricao_imagem").innerText= "("+dadosImagem.descricao+")";
+    quantErro=0;
 }
 
 function obterDadosPorId(id) {
@@ -127,7 +168,7 @@ function ganhou(){
         atualizaJogoAtual();
         document.getElementById("ganhou").style.display = "none";
         document.getElementById("introducao").style.display = "flex";
-    }, 3000);    
+    }, 2000);    
 }
 
 function desistir(){
@@ -138,7 +179,6 @@ function desistir(){
 function atualizaJogoAtual(){
     //jogoAtual
     let maxJogos = quantImagensMax-1; //O jogo atual começa em 0
-    console.log("jogoAtual == maxJogos / " + jogoAtual + " == " +maxJogos);
     
     if(jogoAtual==maxJogos){
         jogoAtual=0;
