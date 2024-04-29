@@ -122,12 +122,12 @@ function destacaErro(erro){
 }
 
 function ganhou(){
-    /*document.getElementById("ganhou").style.display = "flex";
+    document.getElementById("ganhou").style.display = "flex";
     setTimeout(function () {
         atualizaJogoAtual();
         document.getElementById("ganhou").style.display = "none";
         document.getElementById("introducao").style.display = "flex";
-    }, 3000);    */
+    }, 3000);    
 }
 
 function desistir(){
