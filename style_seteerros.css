@@ -3,7 +3,7 @@
     padding: 0px;
 }
 
-body{
+body {
     overflow: auto;
 }
 
@@ -69,7 +69,7 @@ svg {
 }
 
 .icon-button .material-symbols-outlined {
-    font-size: 35px;
+    font-size: 3em;
     color: #000;
 }
 
@@ -101,8 +101,16 @@ svg {
     transition: background-color 0.5s ease;
 }
 
-a{
-    cursor:default;
+#btn_dica {
+    background-color: rgb(255, 252, 90);
+}
+
+#bt_jogar {
+    background-color: rgb(90, 129, 255);
+}
+
+a {
+    cursor: default;
 }
 
 hr {
@@ -110,6 +118,16 @@ hr {
     border: 2px solid;
     opacity: 1;
 }
+
+.imagem_tutorial{
+    height: 60vh;
+}
+
+#tutorial{
+    overflow: auto;
+}
+
+
 
 @media (max-width: 600px) {
     .espaco-cima {
@@ -126,7 +144,12 @@ hr {
         width: 98%;
     }
 
-    hr{
+    hr {
         width: 50%;
+    }
+
+    .imagem_tutorial{
+        height: 55vh;
+        width: auto;
     }
 }

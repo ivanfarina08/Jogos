@@ -17,14 +17,16 @@
   <!--
     Fazer map em imagem
     https://imagemapper.pageballoon.com/#/
+
+    Jogo não tem tela de ganhou.
   -->
   <div class="principal">
     <img id="caminhoImagemSemErro" src="" alt="">
+    <h3 id="descricao_imagem"></h3>
     <hr>
-    <h3>Descubra os 7 erros</h3>
     <svg id="imagemComErro" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 639 366"></svg>
-      <button class="btn-jogo btn-desistir" onclick="desistir()">Desistir</button>
+    <button class="btn-jogo btn-desistir" onclick="desistir()">Desistir</button>
   </div>
 
   <div class="text-center estilo_jogo_parado" id="introducao">
@@ -35,11 +37,16 @@
     </div>
 
     <div class="flex-row espacamentoEntre espaco-cima">
-      <button class="icon-button button" id="bt_jogar" onclick="inicializaJogo()" title="Iniciar Jogo">
+      <button class="icon-button button" id="btn_dica" onclick="abrirTutorial()">
         <span class="material-symbols-outlined">
-          play_arrow
+          question_mark
         </span>
-      </button>
+    </button>
+    <button class="icon-button button" id="bt_jogar" onclick="inicializaJogo()" title="Iniciar Jogo" style="margin-left: 2em;">
+      <span class="material-symbols-outlined">
+        play_arrow
+      </span>
+    </button>
     </div>
 
   </div>
@@ -47,16 +54,22 @@
   <div class="text-center estilo_jogo_parado" id="ganhou">
 
     <div class="textoIntroducaoJogo">
-      <h1>Jogo dos 7 erros</h1>
-      <h2>Encontre dos 7 erros da imagem</h2>
+      <h1>Parabénsssss, você foi incrível!!</h1>
     </div>
 
-    <div class="flex-row espacamentoEntre espaco-cima">
-      <button class="icon-button button" id="bt_jogar" onclick="inicializaJogo()" title="Iniciar Jogo">
-        <span class="material-symbols-outlined">
-          play_arrow
-        </span>
-      </button>
+  </div>
+
+  <div class="text-center estilo_jogo_parado" id="tutorial">
+
+    <div class="textoIntroducaoJogo">
+      <h1>Como jogar o jogo dos 7 erros?</h1>
+      <h5 class="espaco-cima">Hora do desafio! Explore as duas imagens e aponte o que está diferente na imagem de baixo!</h5>
+      <h5 class="espaco-cima">Exemplo:</h5>
+      <img class="imagem_tutorial" src="img/sete_erros/imagem_tutorial.png" alt="" srcset="">
+    </div>
+
+    <div class="">
+      <button class="btn-jogo btn-desistir" onclick="fecharTutorial()">Fechar</button>
     </div>
 
   </div>
