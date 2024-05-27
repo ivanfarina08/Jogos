@@ -18,7 +18,7 @@ console.log(palavraGabarito);
 
 
 function inicializaJogo() {
-    document.getElementById('mensagemTutorial').style.display = "flex";
+    document.getElementById('tela-inicial').style.display = "flex";
     
     // Verifique se o item "melhor-jogo" existe no localStorage
     if (!localStorage.hasOwnProperty("melhor-jogo")) {
@@ -47,7 +47,7 @@ function inicializaarrayIndicesPalavraUsuario() {
 }
 
 export function criaAmbiente() {
-    document.getElementById('mensagemTutorial').style.display = "none";
+    document.getElementById('tela-inicial').style.display = "none";
     inicializaArrayIndices();
 
     let board = document.getElementById("game-board");
@@ -338,9 +338,10 @@ function jogarNovamente() {
 }
 
 export function parar(){
-    document.getElementById('mensagemTutorial').style.display = "flex";
     document.getElementById('mensagemPerdeu').style.display = "none";
     document.getElementById('mensagemGanhou').style.display = "none";
+    document.getElementById('tela-inicial').style.display = "flex";
+    
     console.log('localStorage.getItem("melhor-jogo"): '+ localStorage.getItem("melhor-jogo") + ' / contarMelhorJogo: '+contarMelhorJogo);
     if(localStorage.getItem("melhor-jogo")<contarMelhorJogo){
         localStorage.setItem("melhor-jogo", contarMelhorJogo);
@@ -352,17 +353,12 @@ export function parar(){
 }
 
 function abrirTutorial() {
-    let mensagemTutorial = document.getElementById("mensagemTutorial");
+    let mensagemTutorial = document.getElementById("tutorial");
     mensagemTutorial.style.display = "flex";
-    let bt_continuar = document.getElementById("bt_continuar");
-    bt_continuar.style.display = "block";
-    let bt_reiniciar = document.getElementById("bt_reiniciar");
-    bt_reiniciar.style.display = "none";
 }
 
-function continuarJogo() {
-    let mensagemTutorial = document.getElementById("mensagemTutorial");
-    mensagemTutorial.style.display = "none";
+function sairTutorial(){
+    document.getElementById("tutorial").style.display = 'none';
 }
 
 function darDica() {
@@ -441,7 +437,7 @@ inicializaJogo()
 window.criaAmbiente = criaAmbiente;
 window.jogarNovamente = jogarNovamente;
 window.abrirTutorial = abrirTutorial;
-window.continuarJogo = continuarJogo;
 window.darDica = darDica;
 window.deletarLetra = deletarLetra;
 window.parar = parar;
+window.sairTutorial = sairTutorial;

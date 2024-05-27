@@ -15,7 +15,11 @@ body {
 
 .botao_jogo_parado {
   --color: #def700;
-  width: 25%;
+}
+
+.bt_parar{
+  --color: #f70000;
+  font-weight: 400;
 }
 
 h1 {
@@ -33,6 +37,16 @@ h1 {
 .center{
   display: flex;
   justify-content: center;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.espacamentoEntre button,
+.espacamentoEntre div {
+    margin: 10px;
 }
 
 .cabecalho {
@@ -131,6 +145,7 @@ button {
   box-shadow: 0.7px 1.4px 1.4px hsl(0deg 0% 0% / 0.48);
   border-radius: 4px;
   font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', sans-serif;
+  cursor: pointer;
 }
 
 .letter {
@@ -211,6 +226,14 @@ p {
   overflow: auto;
   height: auto;
   background-color: rgb(58, 50, 50);
+}
+
+#tutorial p{
+  color: white;
+}
+
+#tutorial img{
+  height: 50vh;
 }
 
 .transparent {

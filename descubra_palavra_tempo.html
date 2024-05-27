@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="text-center estilo_jogo_parado" id="mensagemTutorial">
+    <div class="text-center estilo_jogo_parado" id="tela-inicial">
 
         <h1>Descubra a palavra!</h1>
 
@@ -94,22 +94,33 @@
 
     <div class="text-center estilo_jogo_parado" id="mensagemGanhou">
         <h1>Você acertooou!!</h1><br>
-        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="jogarNovamente()">Jogar
-            novamente</button><br>
-        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_parar"
-            onclick="parar()">Parar</button><br>
+        <div class="flex-row espacamentoEntre espaco-cima center">
+            <button class="botao_jogo_parado bt_parar" onclick="parar()">Sair</button><br>
+            <button class="botao_jogo_parado" id="bt_reiniciar" onclick="jogarNovamente()">Jogar
+                novamente</button><br>
+        </div>
     </div>
 
+    <div class="text-center estilo_jogo_parado" id="tutorial">
+        <h1>Como jogar?</h1><br>
+        <p>Descubra as letras que faltam na palavra dentro de 30 segundos!</p>
+        <p>Exemplo:</p>
+        <img src="img/descubra_palavra_tempo/tutorial.png" alt="">
+        <div class="flex-row espacamentoEntre center">
+            <button class="botao_jogo_parado bt_parar" onclick="sairTutorial()">Sair</button><br>
+        </div>
+    </div>
 
-    <div class="text-center estilo_jogo_parado" id="mensagemPerdeu">
+    <div class="text-center espacamentoEntre estilo_jogo_parado" id="mensagemPerdeu">
         <h1>Não foi dessa vez :((</h1><br>
         <h1>Tempo Esgotado!</h1>
         <h1>A palavra era: </h1><br>
         <h1 id="palavraGabarito"></h1><br>
-        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="jogarNovamente()">Jogar
-            novamente</button><br>
-        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_parar"
-            onclick="parar()">Parar</button><br>
+        <div class="flex-row espaco-cima">
+            <button class="botao_jogo_parado bt_parar" onclick="parar()">Sair</button><br>
+            <button class="botao_jogo_parado" id="bt_reiniciar" onclick="jogarNovamente()">Jogar
+                novamente</button><br>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
