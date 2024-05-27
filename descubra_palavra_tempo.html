@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra a Palavra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_descubra_palavra_tempo.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+
+<body>
+    <div class="text-center estilo_jogo_parado" id="mensagemTutorial">
+
+        <h1>Descubra a palavra!</h1>
+
+        <h2 id="melhor-jogo"></h2>
+
+        <div class="flex-row espacamentoEntre espaco-cima">
+            <button class="icon-button button" onclick="abrirTutorial()" title="Abrir o tutorial">
+                <span class="material-symbols-outlined">
+                    question_mark
+                </span>
+            </button>
+            <button class="icon-button button" id="bt_jogar" onclick="criaAmbiente()" title="Iniciar Jogo">
+                <span class="material-symbols-outlined">
+                    play_arrow
+                </span>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div>
+            <h1>Qual é a palavra?</h1>
+        </div>
+        <div id="game-board"></div>
+
+        <div id="keyboard-cont" class="espaco-cima">
+            <div class="primeira-linha">
+                <button class="keyboard-button">a</button>
+                <button class="keyboard-button">b</button>
+                <button class="keyboard-button">c</button>
+                <button class="keyboard-button">d</button>
+                <button class="keyboard-button">e</button>
+                <button class="keyboard-button">f</button>
+                <button class="keyboard-button">g</button>
+            </div>
+            <div class="segunda-linha">
+                <button class="keyboard-button">h</button>
+                <button class="keyboard-button">i</button>
+                <button class="keyboard-button">j</button>
+                <button class="keyboard-button">l</button>
+                <button class="keyboard-button">m</button>
+                <button class="keyboard-button">n</button>
+                <button class="keyboard-button">o</button>
+            </div>
+            <div class="terceira-linha">
+                <button class="keyboard-button">p</button>
+                <button class="keyboard-button">q</button>
+                <button class="keyboard-button">r</button>
+                <button class="keyboard-button">s</button>
+                <button class="keyboard-button">t</button>
+                <button class="keyboard-button">u</button>
+                <button class="keyboard-button">v</button>
+            </div>
+            <div class="quarta-linha">
+                <button class="keyboard-button" id="del" onclick="deletarLetra()">APAGAR</button>
+                <button class="keyboard-button">x</button>
+                <button class="keyboard-button">z</button>
+                <button class="keyboard-button" id="enter">Enter</button>
+            </div>
+        </div>
+
+        <div class="center espaco-cima" id="contagem-regressiva"></div>
+    </div>
+
+
+    <div class="text-center estilo_jogo_parado" id="mensagemLetrasInsuficiente">
+        <h1>Quantidade de letras insuficiente</h1><br>
+    </div>
+
+    <div class="text-center estilo_jogo_parado" id="mensagemPalavrasValidas">
+        <h1>A palavra não está na lista de palavras válidas!</h1><br>
+    </div>
+
+
+    <div class="text-center estilo_jogo_parado" id="mensagemGanhou">
+        <h1>Você acertooou!!</h1><br>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="jogarNovamente()">Jogar
+            novamente</button><br>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_parar"
+            onclick="parar()">Parar</button><br>
+    </div>
+
+
+    <div class="text-center estilo_jogo_parado" id="mensagemPerdeu">
+        <h1>Não foi dessa vez :((</h1><br>
+        <h1>Tempo Esgotado!</h1>
+        <h1>A palavra era: </h1><br>
+        <h1 id="palavraGabarito"></h1><br>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_reiniciar" onclick="jogarNovamente()">Jogar
+            novamente</button><br>
+        <button class="botao_jogo_parado" style="margin-top: 20px;" id="bt_parar"
+            onclick="parar()">Parar</button><br>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="script_descubra_palavra_tempo.js" type="module"></script>
+</body>
+
+</html>
