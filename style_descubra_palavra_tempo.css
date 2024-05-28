@@ -32,6 +32,7 @@ h1 {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2em;
 }
 
 .center{
@@ -199,10 +200,6 @@ p {
   font-size: 1.4em;
 }
 
-#game-board {
-  margin-bottom: 2em;
-}
-
 .espaco-cima {
   margin-top: 40px;
 }
@@ -277,5 +274,20 @@ p {
 
   .botao_jogo_parado {
     width: initial;
+  }
+
+  #game-board h1{
+    font-size: 1.8em;
+    margin-top: 10px;
+    margin-bottom: 0.7em;
+    text-decoration:underline;
+  }
+
+  h2{
+    font-size: 1.3em;
+  }
+
+  #game-board{
+    margin-bottom: 0.7em;
   }
 }

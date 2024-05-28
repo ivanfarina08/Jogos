@@ -94,7 +94,7 @@ function temaDica(board) {
     let tema = document.createElement("h2");
     tema.innerHTML = 'Tema: '+palavraGabarito.tema;
 
-    let dica = document.createElement("p");
+    let dica = document.createElement("h1");
     dica.innerHTML = palavraGabarito.dica;
 
     board.appendChild(tema);
@@ -102,7 +102,7 @@ function temaDica(board) {
 }
 
 function colocarLetras() {
-    let quantLetraAdd = getRandomInt(3);
+    let quantLetraAdd = 2; //quantidade de dicas de 0 ao numero que está na variável
     for (let i = 0; i <= quantLetraAdd; i++) {
         darDica();
     }
@@ -256,7 +256,6 @@ function pintaLetras(arrayPalavraGabarito, linha, palavraUsuario) {
     let arrayCores = ["pink", "pink", "pink", "pink", "pink"];
     arrayCores = pintaLetrasAmarelo(arrayCores, arrayPalavraGabarito);
     pintaLetrasVerde(arrayCores, arrayPalavraGabarito);
-    //animarResultadoLetra(linha, palavraUsuario, arrayCores);
 }
 
 function pintaLetrasAmarelo(arrayCores, arrayPalavraGabarito) {
@@ -294,7 +293,6 @@ function animarResultadoLetra(linha, palavraUsuario, arrayCores) {
             animateCSS(box, "flipInX");
             //shade box
             box.style.backgroundColor = arrayCores[i];
-            //corLetraTeclado(palavraUsuario.charAt(i) + "", arrayCores[i]);
         }, delay);
     }
 }
@@ -382,7 +380,7 @@ function darDica() {
 }
 
 function podeDarDica() {
-    return arrayAcertosUsuario.filter(Boolean).length < 4 && quantDicas <= quantMaxDicas;
+    return quantDicas <= quantMaxDicas;
 }
 
 function getRandomIndex(length) {
@@ -393,7 +391,6 @@ function obterLetraDica(indice) {
     const arrayPalavraGabarito = Array.from(palavraGabarito.nome);
     return arrayPalavraGabarito[indice];
 }
-
 
 function carregaArrayIndicesDarDica(arrayIndices) {
     let posicao = 0;
